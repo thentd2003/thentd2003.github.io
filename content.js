@@ -95,19 +95,24 @@ window.SITE_DATA = {
         "My contribution": "[Specify which stages/modules you personally implemented — e.g. hazard unit, cache model, or the custom-innovation milestone.]",
         "Outcome": "[Add the result of the graded demo, and any performance/correctness metrics from your test suite.]"
       }
-    }
-  ],
-
-  coursework: [
-    {
-      code: "ENSC 254",
-      title: "GeMM Performance Optimization",
-      description: "Optimized matrix multiplication using loop tiling, AVX2 SIMD intrinsics, and OpenMP threading on a 20-thread lab machine, competing on runtime in a class-wide performance benchmark."
     },
     {
-      code: "ENSC 254",
-      title: "Cache Simulator",
-      description: "Built a cache simulator in C implementing LRU and LFU replacement policies, then used it to run a design-space exploration across cache configurations."
+      designator: "U5",
+      status: "[Add Status]",
+      statusClass: "",
+      title: "Automated Motorized Soccer Tripod",
+      blurb: "[Add a one-sentence description of what this device does and why you built it.]",
+      tags: ["Motor Control", "Embedded Systems", "Automation"],
+      image: null,
+      imageAlt: "Automated motorized soccer tripod",
+      mediaLabel: "+ Add photo",
+      link: "#",
+      linkLabel: "Code",
+      details: {
+        "Problem": "[Describe what motivated this build — e.g. hands-free filming of soccer practice or games.]",
+        "Approach": "[Describe the mechanical and control design — motors, tracking method, and key decisions you made.]",
+        "Outcome": "[Add the result — tracking accuracy, reliability, or a link to demo footage.]"
+      }
     }
   ],
 
