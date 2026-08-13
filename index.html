@@ -489,7 +489,6 @@
     <a href="#top" class="nav__mark" id="navMark"></a>
     <ul class="nav__links">
       <li><a href="#projects">Work</a></li>
-      <li><a href="#coursework">Coursework</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -545,22 +544,9 @@
           <p class="eyebrow">// projects</p>
           <h2>Selected work</h2>
         </div>
-        <p>Four builds, from a resonant power converter to a cycle-accurate CPU simulator.</p>
+        <p>From a resonant power converter to a cycle-accurate CPU simulator.</p>
       </div>
       <div class="projects-grid" id="projectsGrid"></div>
-    </div>
-  </section>
-
-  <section id="coursework">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <div>
-          <p class="eyebrow">// coursework</p>
-          <h2>Lab notebook</h2>
-        </div>
-        <p>Smaller technical work from coursework, worth a mention but not a full write-up.</p>
-      </div>
-      <div class="lab-list reveal" id="labList"></div>
     </div>
   </section>
 
@@ -661,13 +647,6 @@
       '</article>'
     );
     grid.appendChild(card);
-  });
-
-  var labList = document.getElementById('labList');
-  d.coursework.forEach(function(c){
-    labList.appendChild(el(
-      '<div class="lab-row"><span class="code">' + c.code + '</span><div><h4>' + c.title + '</h4><p>' + c.description + '</p></div></div>'
-    ));
   });
 
   var aboutP = document.getElementById('aboutParagraphs');
