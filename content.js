@@ -44,24 +44,6 @@ window.SITE_DATA = {
     },
     {
       designator: "U2",
-      status: "Complete",
-      statusClass: "",
-      title: "High-Voltage Flyback Converter",
-      blurb: "My first fully independent power electronics design, built during a co-op in analytic/scientific instrumentation, with full EMC/EMI test verification.",
-      tags: ["Flyback Topology", "EMC/EMI Testing", "PCB Layout"],
-      image: null,
-      imageAlt: "HV flyback converter board",
-      mediaLabel: "+ Add photo / schematic",
-      link: "https://github.com/thentd2003/thentd2003.github.io/tree/main/projects/flyback-converter",
-      linkLabel: "Files",
-      details: {
-        "Problem": "[Describe what system needed high voltage and why a flyback topology was chosen over alternatives.]",
-        "Approach": "Designed the converter from topology selection through transformer specification, feedback/control design, and PCB layout, then carried it through formal EMC/EMI compliance testing.",
-        "Outcome": "[Add input/output voltage, power level, efficiency, and EMC/EMI test results — these numbers do more to convince a reviewer than any adjective.]"
-      }
-    },
-    {
-      designator: "U3",
       status: "In Redesign",
       statusClass: "is-progress",
       title: "Half-Bridge Resonant Induction Heater",
@@ -79,25 +61,7 @@ window.SITE_DATA = {
       }
     },
     {
-      designator: "U4",
-      status: "Complete",
-      statusClass: "",
-      title: "RISC-V Pipeline Simulator",
-      blurb: "A cycle-accurate RISC-V pipeline simulator in C, built with a 4-person team across four milestones for a computer architecture course.",
-      tags: ["C", "Computer Architecture", "Team of 4"],
-      image: null,
-      imageAlt: "RISC-V pipeline simulator terminal output",
-      mediaLabel: "+ Add screenshot",
-      link: "https://github.com/thentd2003/thentd2003.github.io/tree/main/projects/riscv-simulator",
-      linkLabel: "Files",
-      details: {
-        "Milestones": "Basic 5-stage pipeline → hazard detection & forwarding → cache integration → a final milestone of self-designed architectural extensions.",
-        "My contribution": "[Specify which stages/modules you personally implemented — e.g. hazard unit, cache model, or the custom-innovation milestone.]",
-        "Outcome": "[Add the result of the graded demo, and any performance/correctness metrics from your test suite.]"
-      }
-    },
-    {
-      designator: "U5",
+      designator: "U3",
       status: "[Add Status]",
       statusClass: "",
       title: "Automated Motorized Soccer Tripod",
@@ -112,6 +76,42 @@ window.SITE_DATA = {
         "Problem": "[Describe what motivated this build — e.g. hands-free filming of soccer practice or games.]",
         "Approach": "[Describe the mechanical and control design — motors, tracking method, and key decisions you made.]",
         "Outcome": "[Add the result — tracking accuracy, reliability, or a link to demo footage.]"
+      }
+    },
+    {
+      designator: "U4",
+      status: "Complete",
+      statusClass: "",
+      title: "High-Voltage Flyback Converter",
+      blurb: "My first fully independent power electronics design, built during a co-op in analytic/scientific instrumentation, with full EMC/EMI test verification.",
+      tags: ["Flyback Topology", "EMC/EMI Testing", "PCB Layout"],
+      image: null,
+      imageAlt: "HV flyback converter board",
+      mediaLabel: "+ Add photo / schematic",
+      link: "https://github.com/thentd2003/thentd2003.github.io/tree/main/projects/flyback-converter",
+      linkLabel: "Files",
+      details: {
+        "Problem": "[Describe what system needed high voltage and why a flyback topology was chosen over alternatives.]",
+        "Approach": "Designed the converter from topology selection through transformer specification, feedback/control design, and PCB layout, then carried it through formal EMC/EMI compliance testing.",
+        "Outcome": "[Add input/output voltage, power level, efficiency, and EMC/EMI test results — these numbers do more to convince a reviewer than any adjective.]"
+      }
+    },
+    {
+      designator: "U5",
+      status: "Complete",
+      statusClass: "",
+      title: "RISC-V Pipeline Simulator",
+      blurb: "A cycle-accurate RISC-V pipeline simulator in C, built with a 4-person team across four milestones for a computer architecture course.",
+      tags: ["C", "Computer Architecture", "Team of 4"],
+      image: null,
+      imageAlt: "RISC-V pipeline simulator terminal output",
+      mediaLabel: "+ Add screenshot",
+      link: "https://github.com/thentd2003/thentd2003.github.io/tree/main/projects/riscv-simulator",
+      linkLabel: "Files",
+      details: {
+        "Milestones": "Basic 5-stage pipeline → hazard detection & forwarding → cache integration → a final milestone of self-designed architectural extensions.",
+        "My contribution": "[Specify which stages/modules you personally implemented — e.g. hazard unit, cache model, or the custom-innovation milestone.]",
+        "Outcome": "[Add the result of the graded demo, and any performance/correctness metrics from your test suite.]"
       }
     }
   ],
