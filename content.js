@@ -62,7 +62,7 @@ window.SITE_DATA = {
     },
     {
       designator: "U3",
-      status: "Complete",
+      status: "In-Progress",
       statusClass: "",
       title: "Automated Motorized Soccer Tripod",
       blurb: "[Add a one-sentence description of what this device does and why you built it.]",
