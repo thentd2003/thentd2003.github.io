@@ -16,12 +16,11 @@ window.SITE_DATA = {
   name: "David Nguyen",
   headlineHighlight: "the circuits",
   tagline: "Power electronics and embedded systems engineer — resonant converters, control loops, and the boards that make hardware products actually run. Currently building the hardware for AuraSleep and searching for my final co-op.",
-  meta: ["[Your University]", "[Your City, Country]", "Open to Co-op — [Term / Year]"],
-
+  meta: ["Simon Fraser University", "Burnaby, BC, Canada", "Open to Co-op — Spring – Summer 2027"],
   resumeLink: "Dave_resume_Engineering.pdf",
-  email: "you@email.com",
-  github: "https://github.com/yourusername",
-  linkedin: "https://linkedin.com/in/yourusername",
+  email: "dtn7@sfu.ca",
+  github: "https://github.com/thentd2003",
+  linkedin: "https://linkedin.com/in/david-nguyen-53377a268",
 
   projects: [
     {
