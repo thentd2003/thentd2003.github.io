@@ -44,8 +44,8 @@ window.SITE_DATA = {
     },
     {
       designator: "U2",
-      status: "In Redesign",
-      statusClass: "is-progress",
+      status: "Complete",
+      statusClass: "",
       title: "Half-Bridge Resonant Induction Heater",
       blurb: "An LCLR resonant induction heater built for a hardware startup, now mid-redesign toward closed-loop PLL frequency control.",
       tags: ["Half-Bridge", "LCLR Resonant Tank", "PLL Control"],
@@ -62,7 +62,7 @@ window.SITE_DATA = {
     },
     {
       designator: "U3",
-      status: "[Add Status]",
+      status: "Complete",
       statusClass: "",
       title: "Automated Motorized Soccer Tripod",
       blurb: "[Add a one-sentence description of what this device does and why you built it.]",
