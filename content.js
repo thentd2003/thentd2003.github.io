@@ -17,6 +17,7 @@ window.SITE_DATA = {
   headlineHighlight: "the circuits",
   tagline: "Power electronics and embedded systems engineer — resonant converters, control loops, and the boards that make hardware products actually run. Currently building the hardware for AuraSleep and searching for my final co-op.",
   meta: ["Simon Fraser University", "Burnaby, BC, Canada", "Open to Co-op — Spring – Summer 2027"],
+
   resumeLink: "Dave_resume_Engineering.pdf",
   email: "dtn7@sfu.ca",
   github: "https://github.com/thentd2003",
@@ -43,8 +44,8 @@ window.SITE_DATA = {
     },
     {
       designator: "U2",
-      status: "In Redesign",
-      statusClass: "is-progress",
+      status: "Complete",
+      statusClass: "",
       title: "Half-Bridge Resonant Induction Heater",
       blurb: "An LCLR resonant induction heater built for a hardware startup, now mid-redesign toward closed-loop PLL frequency control.",
       tags: ["Half-Bridge", "LCLR Resonant Tank", "PLL Control"],
@@ -61,7 +62,7 @@ window.SITE_DATA = {
     },
     {
       designator: "U3",
-      status: "[Add Status]",
+      status: "In-Progress",
       statusClass: "",
       title: "Automated Motorized Soccer Tripod",
       blurb: "[Add a one-sentence description of what this device does and why you built it.]",
@@ -111,6 +112,25 @@ window.SITE_DATA = {
         "Milestones": "Basic 5-stage pipeline → hazard detection & forwarding → cache integration → a final milestone of self-designed architectural extensions.",
         "My contribution": "[Specify which stages/modules you personally implemented — e.g. hazard unit, cache model, or the custom-innovation milestone.]",
         "Outcome": "[Add the result of the graded demo, and any performance/correctness metrics from your test suite.]"
+      }
+    },
+    {
+      designator: "U6",
+      status: "Complete",
+      statusClass: "",
+      title: "FPGA Digital Clock",
+      blurb: "A VHDL digital clock on a Cyclone V FPGA — BCD timekeeping, button-driven time/alarm setting, and a buzzer alarm, verified with dedicated testbenches.",
+      tags: ["VHDL", "FPGA", "Digital Logic"],
+      image: null,
+      imageAlt: "FPGA digital clock on Cyclone V dev board",
+      mediaLabel: "+ Add photo",
+      link: "https://github.com/thentd2003/thentd2003.github.io/tree/main/projects/fpga-digital-clock",
+      linkLabel: "Files",
+      details: {
+        "Problem": "Built as a digital logic project: a real-time clock running entirely on FPGA fabric, with time and alarm both set through onboard buttons — no external microcontroller.",
+        "Approach": "Structured as small VHDL modules — a prescaler dividing the 50MHz board clock down for timekeeping, a BCD time counter, a button-driven mode FSM to move between display/set-time/set-alarm states, an alarm-compare block, and a buzzer driver — instantiated together in a top-level entity and checked with dedicated testbenches for the mode FSM and the full clock datapath.",
+        "My contribution": "[Specify which modules you personally wrote or verified within the team.]",
+        "Outcome": "Synthesized cleanly on the Cyclone V target — 186 of 41,910 ALMs (< 1%) and 153 registers used. [Add confirmation of hardware demo/testing and any timing notes.]"
       }
     }
   ],
