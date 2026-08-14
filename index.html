@@ -476,6 +476,102 @@
     font-family:var(--font-mono); font-size:11px; color:var(--ink-muted);
   }
 
+  /* ---------- Resume preview modal ---------- */
+  .resume-modal-overlay{
+    position:fixed; inset:0; z-index:100;
+    background:rgba(6,10,9,0.75);
+    backdrop-filter:blur(4px);
+    display:flex; align-items:center; justify-content:center;
+    padding:24px;
+    opacity:0; visibility:hidden;
+    transition:opacity 0.2s ease;
+  }
+  .resume-modal-overlay.is-open{ opacity:1; visibility:visible; }
+  .resume-modal{
+    background:var(--bg-panel);
+    border:1px solid var(--line-strong);
+    border-radius:8px;
+    width:min(840px, 100%);
+    max-height:88vh;
+    display:flex; flex-direction:column;
+    overflow:hidden;
+    box-shadow:0 24px 64px rgba(0,0,0,0.55);
+  }
+  .resume-modal__head{
+    display:flex; align-items:center; justify-content:space-between;
+    gap:16px;
+    padding:14px 18px;
+    border-bottom:1px solid var(--line);
+    flex:none;
+  }
+  .resume-modal__label{
+    font-family:var(--font-mono);
+    font-size:12px;
+    letter-spacing:0.05em;
+    color:var(--ink-muted);
+    display:flex; align-items:center; gap:8px;
+    min-width:0;
+  }
+  .resume-modal__label::before{
+    content:"";
+    width:6px; height:6px; flex:none;
+    background:var(--phosphor);
+    border-radius:50%;
+    box-shadow:0 0 8px var(--phosphor);
+  }
+  .resume-modal__label span{ overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .resume-modal__actions{ display:flex; align-items:center; gap:8px; flex:none; }
+  .resume-modal__download{
+    font-family:var(--font-mono);
+    font-size:11.5px;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+    text-decoration:none;
+    color:var(--bg);
+    background:var(--phosphor);
+    padding:7px 12px;
+    border-radius:var(--radius);
+    white-space:nowrap;
+  }
+  .resume-modal__download:hover{ background:var(--copper-bright); }
+  .resume-modal__close{
+    font-family:var(--font-mono);
+    font-size:16px;
+    line-height:1;
+    color:var(--ink-muted);
+    background:none;
+    border:1px solid var(--line-strong);
+    border-radius:var(--radius);
+    width:30px; height:30px;
+    cursor:pointer;
+  }
+  .resume-modal__close:hover{ color:var(--phosphor); border-color:var(--phosphor); }
+  .resume-modal__body{
+    flex:1;
+    min-height:0;
+    background:#0a1310;
+  }
+  .resume-modal__body iframe{
+    width:100%; height:100%;
+    min-height:70vh;
+    border:0;
+    display:block;
+  }
+  .resume-modal__fallback{
+    font-family:var(--font-mono);
+    font-size:11px;
+    color:var(--ink-muted);
+    text-align:center;
+    padding:8px;
+    border-top:1px solid var(--line);
+    flex:none;
+  }
+  .resume-modal__fallback a{ color:var(--phosphor); text-decoration:none; border-bottom:1px dashed var(--phosphor); }
+  @media (max-width:640px){
+    .resume-modal{ max-height:92vh; }
+    .resume-modal__body iframe{ min-height:60vh; }
+  }
+
   /* Reveal on scroll */
   .reveal{ opacity:0; transform:translateY(14px); transition:opacity 0.5s ease, transform 0.5s ease; }
   .reveal.is-visible{ opacity:1; transform:none; }
@@ -665,6 +761,48 @@
     '<a class="btn-ghost" href="' + d.linkedin + '" target="_blank" rel="noopener">LinkedIn</a>';
 
   document.getElementById('footerName').textContent = d.name + ' — Hardware Engineer';
+
+  // ---------- Resume preview modal ----------
+  var resumeModal = el(
+    '<div class="resume-modal-overlay" role="dialog" aria-modal="true" aria-label="Resume preview">' +
+      '<div class="resume-modal">' +
+        '<div class="resume-modal__head">' +
+          '<div class="resume-modal__label"><span>' + d.resumeLink + '</span></div>' +
+          '<div class="resume-modal__actions">' +
+            '<a class="resume-modal__download" href="' + d.resumeLink + '" download>Download ↓</a>' +
+            '<button class="resume-modal__close" type="button" aria-label="Close">×</button>' +
+          '</div>' +
+        '</div>' +
+        '<div class="resume-modal__body"><iframe src="' + d.resumeLink + '" title="Resume preview"></iframe></div>' +
+        '<div class="resume-modal__fallback">Preview not loading? <a href="' + d.resumeLink + '" download>Download the PDF</a> instead.</div>' +
+      '</div>' +
+    '</div>'
+  );
+  document.body.appendChild(resumeModal);
+
+  function openResumeModal(){
+    resumeModal.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+    resumeModal.querySelector('.resume-modal__close').focus();
+  }
+  function closeResumeModal(){
+    resumeModal.classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+
+  document.getElementById('resumeLink').addEventListener('click', function(e){
+    // Let modified clicks (open in new tab, middle-click, etc.) behave normally
+    if(e.metaKey || e.ctrlKey || e.shiftKey || e.button === 1) return;
+    e.preventDefault();
+    openResumeModal();
+  });
+  resumeModal.querySelector('.resume-modal__close').addEventListener('click', closeResumeModal);
+  resumeModal.addEventListener('click', function(e){
+    if(e.target === resumeModal) closeResumeModal();
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && resumeModal.classList.contains('is-open')) closeResumeModal();
+  });
 
   // Accordion (delegated, since cards are built dynamically)
   document.addEventListener('click', function(e){
