@@ -19,9 +19,9 @@ window.SITE_DATA = {
   meta: ["[Your University]", "[Your City, Country]", "Open to Co-op — [Term / Year]"],
 
   resumeLink: "resume.pdf",
-  email: "you@email.com",
-  github: "https://github.com/yourusername",
-  linkedin: "https://linkedin.com/in/yourusername",
+  email: "dtn7@sfu.ca",
+  github: "https://github.com/thentd2003",
+  linkedin: "https://linkedin.com/in/david-nguyen-53377a268",
 
   projects: [
     {
