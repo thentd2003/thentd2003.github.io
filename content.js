@@ -3,10 +3,9 @@
   need to change — just edit the values below, save, and push.
 
   - Anything wrapped in [ ] is a placeholder — replace it with real info.
-  - To add a photo to a project, set "image" to a path like "images/aurasleep-1.jpg"
-    (put the file in an "images" folder next to this one) and fill in "imageAlt".
-    Leave image as null to keep the dashed placeholder box.
-  - To add a 5th project, copy one of the objects in the "projects" array below
+  - To add a photo to a project, set "image" to a path like "thumbnails/aurasleep.jpg"
+    and fill in "imageAlt". Leave image as null to keep the dashed placeholder box.
+  - To add another project, copy one of the objects in the "projects" array below
     (including the outer { } and comma) and edit its fields. Order in this file
     is the order it appears on the page.
 */
@@ -31,7 +30,7 @@ window.SITE_DATA = {
       title: "AuraSleep — Smart Sleep Mask",
       blurb: "Founder & hardware lead on a sleep-tech wearable — currently taking the hardware from concept to a first working milestone.",
       tags: ["PCB Design", "Embedded Systems", "Product Dev"],
-      image: null,
+      image: "thumbnails/aurasleep.jpg",
       imageAlt: "AuraSleep sleep mask prototype",
       mediaLabel: "+ Add photo",
       link: "https://github.com/thentd2003/thentd2003.github.io/tree/main/projects/aurasleep",
@@ -49,7 +48,7 @@ window.SITE_DATA = {
       title: "Half-Bridge Resonant Induction Heater",
       blurb: "An LCLR resonant induction heater built for a hardware startup, now mid-redesign toward closed-loop PLL frequency control.",
       tags: ["Half-Bridge", "LCLR Resonant Tank", "PLL Control"],
-      image: null,
+      image: "thumbnails/induction_heater.jpg",
       imageAlt: "Half-bridge induction heater build",
       mediaLabel: "+ Add photo",
       link: "https://github.com/thentd2003/thentd2003.github.io/tree/main/projects/induction-heater",
@@ -67,7 +66,7 @@ window.SITE_DATA = {
       title: "Automated Motorized Soccer Tripod",
       blurb: "[Add a one-sentence description of what this device does and why you built it.]",
       tags: ["Motor Control", "Embedded Systems", "Automation"],
-      image: null,
+      image: "thumbnails/soccer_tripod.jpg",
       imageAlt: "Automated motorized soccer tripod",
       mediaLabel: "+ Add photo",
       link: "https://github.com/thentd2003/thentd2003.github.io/tree/main/projects/soccer-tripod",
@@ -85,7 +84,7 @@ window.SITE_DATA = {
       title: "High-Voltage Flyback Converter",
       blurb: "My first fully independent power electronics design, built during a co-op in analytic/scientific instrumentation, with full EMC/EMI test verification.",
       tags: ["Flyback Topology", "EMC/EMI Testing", "PCB Layout"],
-      image: null,
+      image: "thumbnails/flyback.jpg",
       imageAlt: "HV flyback converter board",
       mediaLabel: "+ Add photo / schematic",
       link: "https://github.com/thentd2003/thentd2003.github.io/tree/main/projects/flyback-converter",
@@ -103,7 +102,7 @@ window.SITE_DATA = {
       title: "RISC-V Pipeline Simulator",
       blurb: "A cycle-accurate RISC-V pipeline simulator in C, built with a 4-person team across four milestones for a computer architecture course.",
       tags: ["C", "Computer Architecture", "Team of 4"],
-      image: null,
+      image: "thumbnails/riscv.jpg",
       imageAlt: "RISC-V pipeline simulator terminal output",
       mediaLabel: "+ Add screenshot",
       link: "https://github.com/thentd2003/thentd2003.github.io/tree/main/projects/riscv-simulator",
@@ -119,10 +118,10 @@ window.SITE_DATA = {
       status: "Complete",
       statusClass: "",
       title: "FPGA Digital Clock",
-      blurb: "A VHDL digital clock on a Cyclone V FPGA — BCD timekeeping, button-driven time/alarm setting, and a buzzer alarm, verified with dedicated testbenches.",
+      blurb: "A VHDL digital clock on a Cyclone V FPGA (Terasic DE10-Standard) — BCD timekeeping, button-driven time/alarm setting, and a buzzer alarm, verified with dedicated testbenches.",
       tags: ["VHDL", "FPGA", "Digital Logic"],
-      image: null,
-      imageAlt: "FPGA digital clock on Cyclone V dev board",
+      image: "thumbnails/digital_clock.jpg",
+      imageAlt: "FPGA digital clock on DE10-Standard dev board",
       mediaLabel: "+ Add photo",
       link: "https://github.com/thentd2003/thentd2003.github.io/tree/main/projects/fpga-digital-clock",
       linkLabel: "Files",
