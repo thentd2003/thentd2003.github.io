@@ -1,0 +1,10 @@
+* 5um BNR CMOS transistor model statements
+*$
+.MODEL nmos_transistor nmos ( level=2 vto=1 nsub=1e16 tox=8.5e-8 uo=750
++ cgso=4e-10 cgdo=4e-10 cgbo=2e-10 uexp=0.14 ucrit=5e4 utra=0 vmax=5e4 rsh=15
++ cj=4e-4 mj=2 pb=0.7 cjsw=8e-10 mjsw=2 js=1e-6 xj=1u ld=0.7u )
+*$
+.MODEL pmos_transistor pmos ( level=2 vto=-1 nsub=2e15 tox=8.5e-8 uo=250
++ cgso=4e-10 cgdo=4e-10 cgbo=2e-10 uexp=0.03 ucrit=1e4 utra=0 vmax=3e4 rsh=75
++ cj=1.8e-4 mj=2 pb=0.7 cjsw=6e-10 mjsw=2 js=1e-6 xj=0.9u ld=0.6u )
+*$
