@@ -131,6 +131,25 @@ window.SITE_DATA = {
         "My contribution": "[Specify which modules you personally wrote or verified within the team.]",
         "Outcome": "Synthesized cleanly on the Cyclone V target — 186 of 41,910 ALMs (< 1%) and 153 registers used. [Add confirmation of hardware demo/testing and any timing notes.]"
       }
+    },
+    {
+      designator: "U7",
+      status: "Complete",
+      statusClass: "",
+      title: "CMOS Bandgap Reference Voltage Circuit",
+      blurb: "A CMOS bandgap voltage reference designed and simulated in OrCAD X — a PTAT/CTAT current-mirror topology with startup circuitry, tuned to under 100 ppm/°C temperature drift.",
+      tags: ["Analog IC Design", "OrCAD X", "Team of 3"],
+      image: null,
+      imageAlt: "Bandgap reference circuit schematic",
+      mediaLabel: "+ Add photo",
+      link: "https://github.com/thentd2003/thentd2003.github.io/tree/main/projects/bandgap-reference",
+      linkLabel: "Files",
+      details: {
+        "Problem": "Design and simulate a CMOS bandgap reference (BGR) circuit for an analog IC design course — a stable ~1.2V output largely independent of temperature and supply variation, built from a provided 5μm CMOS process.",
+        "Approach": "Chose a current-mirror-based topology over a Brokaw cell for simpler CMOS implementation, combining PTAT and CTAT currents from diode-connected BJTs through a cascoded current mirror, with dedicated startup circuitry to guarantee correct power-on behavior every time.",
+        "My contribution": "Simulations and report — building and iterating the OrCAD X simulations and writing up the results.",
+        "Outcome": "Measured a 99.6 ppm/°C temperature coefficient across 0–100°C (target was ≤100 ppm/°C), 5mW power consumption, and — after adding 10μF/0.1μF output decoupling — near-complete suppression of ripple from a 1VAC line-noise injection test."
+      }
     }
   ],
 
