@@ -16,12 +16,12 @@ window.SITE_DATA = {
   name: "David Nguyen",
   headlineHighlight: "the circuits",
   tagline: "Power electronics and embedded systems engineer — resonant converters, control loops, and the boards that make hardware products actually run. Currently building the hardware for AuraSleep and searching for my final co-op.",
-  meta: ["Simon Fraser University", "Burnaby, BC, Canada", "Open to Co-op — [Spring - Summer/ 2027]"],
+  meta: ["[Your University]", "[Your City, Country]", "Open to Co-op — [Term / Year]"],
 
-  resumeLink: "resume.pdf",
-  email: "dtn7@sfu.ca",
-  github: "https://github.com/thentd2003",
-  linkedin: "https://linkedin.com/in/david-nguyen-53377a268",
+  resumeLink: "Dave_resume_Engineering.pdf",
+  email: "you@email.com",
+  github: "https://github.com/yourusername",
+  linkedin: "https://linkedin.com/in/yourusername",
 
   projects: [
     {
@@ -44,8 +44,8 @@ window.SITE_DATA = {
     },
     {
       designator: "U2",
-      status: "Complete",
-      statusClass: "",
+      status: "In Redesign",
+      statusClass: "is-progress",
       title: "Half-Bridge Resonant Induction Heater",
       blurb: "An LCLR resonant induction heater built for a hardware startup, now mid-redesign toward closed-loop PLL frequency control.",
       tags: ["Half-Bridge", "LCLR Resonant Tank", "PLL Control"],
@@ -62,7 +62,7 @@ window.SITE_DATA = {
     },
     {
       designator: "U3",
-      status: "In-Progress",
+      status: "[Add Status]",
       statusClass: "",
       title: "Automated Motorized Soccer Tripod",
       blurb: "[Add a one-sentence description of what this device does and why you built it.]",
