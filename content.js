@@ -26,6 +26,7 @@ window.SITE_DATA = {
     {
       designator: "U1",
       section: "power",
+      flagship: true,
       status: "Flagship · In Progress",
       statusClass: "is-flagship",
       title: "AuraSleep — Smart Sleep Mask",
