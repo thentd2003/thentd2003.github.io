@@ -411,16 +411,23 @@
   }
   .toggle-btn{
     font-family:var(--font-mono);
-    font-size:12px;
-    letter-spacing:0.03em;
+    font-size:11.5px;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
     color:var(--phosphor);
-    background:none;
-    border:none;
+    background:rgba(255,179,0,0.10);
+    border:1px solid rgba(255,179,0,0.45);
+    border-radius:var(--radius);
+    padding:7px 13px;
     cursor:pointer;
-    padding:4px 0;
-    display:flex; align-items:center; gap:6px;
+    display:inline-flex; align-items:center; gap:6px;
+    transition:background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
   }
-  .toggle-btn:hover{ color:var(--copper-bright); }
+  .toggle-btn:hover{
+    color:var(--bg);
+    background:var(--phosphor);
+    box-shadow:0 0 16px rgba(255,179,0,0.35);
+  }
   .toggle-btn .plus{ transition:transform 0.2s ease; display:inline-block; }
   .toggle-btn[aria-expanded="true"] .plus{ transform:rotate(45deg); }
   .link-row{ display:flex; gap:14px; }
@@ -791,7 +798,7 @@
     }).join('');
     var footHTML =
       '<div class="card-foot">' +
-        '<button class="toggle-btn" aria-expanded="false" data-toggle><span class="plus">+</span><span class="label"> Case study</span></button>' +
+        '<button class="toggle-btn" aria-expanded="false" data-toggle><span class="plus">+</span><span class="label"> Details</span></button>' +
         '<div class="link-row"><a href="' + (p.link || '#') + '" target="_blank" rel="noopener">' + (p.linkLabel || 'Link') + ' \u2197</a></div>' +
       '</div>';
     return { mediaHTML: mediaHTML, tagsHTML: tagsHTML, detailsHTML: detailsHTML, footHTML: footHTML };
@@ -906,7 +913,7 @@
     var open = btn.getAttribute('aria-expanded') === 'true';
     btn.setAttribute('aria-expanded', String(!open));
     details.classList.toggle('is-open', !open);
-    btn.querySelector('.label').textContent = open ? ' Case study' : ' Close';
+    btn.querySelector('.label').textContent = open ? ' Details' : ' Close';
   });
 
   // Scroll reveal
