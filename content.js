@@ -25,6 +25,7 @@ window.SITE_DATA = {
   projects: [
     {
       designator: "U1",
+      section: "power",
       status: "Flagship · In Progress",
       statusClass: "is-flagship",
       title: "AuraSleep — Smart Sleep Mask",
@@ -43,6 +44,7 @@ window.SITE_DATA = {
     },
     {
       designator: "U2",
+      section: "power",
       status: "Complete",
       statusClass: "",
       title: "Half-Bridge Resonant Induction Heater",
@@ -61,24 +63,7 @@ window.SITE_DATA = {
     },
     {
       designator: "U3",
-      status: "In-Progress",
-      statusClass: "",
-      title: "Automated Motorized Soccer Tripod",
-      blurb: "[Add a one-sentence description of what this device does and why you built it.]",
-      tags: ["Motor Control", "Embedded Systems", "Automation"],
-      image: "thumbnails/soccer_tripod.jpg",
-      imageAlt: "Automated motorized soccer tripod",
-      mediaLabel: "+ Add photo",
-      link: "https://github.com/thentd2003/thentd2003.github.io/tree/main/projects/soccer-tripod",
-      linkLabel: "Files",
-      details: {
-        "Problem": "[Describe what motivated this build — e.g. hands-free filming of soccer practice or games.]",
-        "Approach": "[Describe the mechanical and control design — motors, tracking method, and key decisions you made.]",
-        "Outcome": "[Add the result — tracking accuracy, reliability, or a link to demo footage.]"
-      }
-    },
-    {
-      designator: "U4",
+      section: "power",
       status: "Complete",
       statusClass: "",
       title: "High-Voltage Flyback Converter",
@@ -96,7 +81,8 @@ window.SITE_DATA = {
       }
     },
     {
-      designator: "U5",
+      designator: "U4",
+      section: "power",
       status: "Complete",
       statusClass: "",
       title: "CMOS Bandgap Reference Voltage Circuit",
@@ -115,7 +101,27 @@ window.SITE_DATA = {
       }
     },
     {
+      designator: "U5",
+      section: "embedded",
+      status: "In-Progress",
+      statusClass: "",
+      title: "Automated Motorized Soccer Tripod",
+      blurb: "[Add a one-sentence description of what this device does and why you built it.]",
+      tags: ["Motor Control", "Embedded Systems", "Automation"],
+      image: "thumbnails/soccer_tripod.jpg",
+      imageAlt: "Automated motorized soccer tripod",
+      mediaLabel: "+ Add photo",
+      link: "https://github.com/thentd2003/thentd2003.github.io/tree/main/projects/soccer-tripod",
+      linkLabel: "Files",
+      details: {
+        "Problem": "[Describe what motivated this build — e.g. hands-free filming of soccer practice or games.]",
+        "Approach": "[Describe the mechanical and control design — motors, tracking method, and key decisions you made.]",
+        "Outcome": "[Add the result — tracking accuracy, reliability, or a link to demo footage.]"
+      }
+    },
+    {
       designator: "U6",
+      section: "embedded",
       status: "Complete",
       statusClass: "",
       title: "RISC-V Pipeline Simulator",
@@ -134,6 +140,7 @@ window.SITE_DATA = {
     },
     {
       designator: "U7",
+      section: "embedded",
       status: "Complete",
       statusClass: "",
       title: "FPGA Digital Clock",
