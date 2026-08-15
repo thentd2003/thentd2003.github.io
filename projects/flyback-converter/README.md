@@ -1,7 +1,0 @@
-# High-Voltage Flyback Converter
-
-Drop project documents here — schematics, PCB files, datasheets, EMC/EMI test
-reports, extra photos, etc.
-
-Anything you upload to this folder is reachable from the "Files" link on that
-project's card on the site.
