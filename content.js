@@ -84,7 +84,7 @@ window.SITE_DATA = {
       title: "High-Voltage Flyback Converter",
       blurb: "My first fully independent power electronics design — a flyback converter and Cockcroft-Walton multiplier built during a co-op at Analytic Systems to generate 1000V test surges for validating a high-voltage inverter's protection board.",
       tags: ["Flyback Converter", "Cockcroft-Walton Multiplier", "SMPS Design"],
-      image: "thumbnails/flyback.jpg",
+      image: "thumbnails/flyback.png",
       imageAlt: "HV flyback converter board",
       mediaLabel: "+ Add photo / schematic",
       link: "https://github.com/thentd2003/thentd2003.github.io/tree/main/projects/flyback-converter",
