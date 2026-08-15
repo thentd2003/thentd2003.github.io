@@ -82,17 +82,17 @@ window.SITE_DATA = {
       status: "Complete",
       statusClass: "",
       title: "High-Voltage Flyback Converter",
-      blurb: "My first fully independent power electronics design, built during a co-op in analytic/scientific instrumentation, with full EMC/EMI test verification.",
-      tags: ["Flyback Topology", "EMC/EMI Testing", "PCB Layout"],
+      blurb: "My first fully independent power electronics design — a flyback converter and Cockcroft-Walton multiplier built during a co-op at Analytic Systems to generate 1000V test surges for validating a high-voltage inverter's protection board.",
+      tags: ["Flyback Converter", "Cockcroft-Walton Multiplier", "SMPS Design"],
       image: "thumbnails/flyback.jpg",
       imageAlt: "HV flyback converter board",
       mediaLabel: "+ Add photo / schematic",
       link: "https://github.com/thentd2003/thentd2003.github.io/tree/main/projects/flyback-converter",
       linkLabel: "Files",
       details: {
-        "Problem": "[Describe what system needed high voltage and why a flyback topology was chosen over alternatives.]",
-        "Approach": "Designed the converter from topology selection through transformer specification, feedback/control design, and PCB layout, then carried it through formal EMC/EMI compliance testing.",
-        "Outcome": "[Add input/output voltage, power level, efficiency, and EMC/EMI test results — these numbers do more to convince a reviewer than any adjective.]"
+        "Problem": "Analytic Systems needed to validate a high-voltage surge disconnect board — protecting a high-voltage inverter from surges up to 1000V (e.g. from lightning) — by generating controlled test surges from a 24V, 2A supply. A flyback converter was chosen for its natural isolation and wide output voltage range.",
+        "Approach": "Built a 555-timer oscillator driving a flyback transformer (7.7:1 step-up) through a MOSFET switch, feeding a 7-stage Cockcroft-Walton multiplier to reach up to 1000V. Iterated through two major redesigns after real failures: switched to a 650V MOSFET and added an RCD snubber after transformer kickback destroyed the original 200V device, then added dual coarse/fine potentiometers, a gate resistor, and active cooling to fix control and thermal issues. Packaged in a custom SolidWorks-designed, 3D-printed enclosure.",
+        "Outcome": "Delivered an adjustable 300–1000V surge source in a safety-labeled enclosure, used to successfully test the disconnect board. Also identified the design's key limitation — nonlinear output once loaded, from the multiplier's sensitivity to waveform shape — and recommended a dedicated flyback controller IC as the fix for a future revision."
       }
     },
     {
