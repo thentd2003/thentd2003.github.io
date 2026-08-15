@@ -121,7 +121,7 @@ window.SITE_DATA = {
       title: "RISC-V Pipeline Simulator",
       blurb: "A cycle-accurate RISC-V pipeline simulator in C, built with a 4-person team across four milestones for a computer architecture course.",
       tags: ["C", "Computer Architecture", "Team of 4"],
-      image: "thumbnails/riscv.jpg",
+      image: "thumbnails/riscv.png",
       imageAlt: "RISC-V pipeline simulator terminal output",
       mediaLabel: "+ Add screenshot",
       link: "https://github.com/thentd2003/thentd2003.github.io/tree/main/projects/riscv-simulator",
