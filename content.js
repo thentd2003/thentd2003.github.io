@@ -36,7 +36,7 @@ window.SITE_DATA = {
       imageAlt: "AuraSleep sleep mask prototype",
       mediaLabel: "+ Add photo",
       link: "https://github.com/thentd2003/thentd2003.github.io/tree/main/projects/aurasleep",
-      linkLabel: "Files",
+      linkLabel: "Full Report",
       details: {
         "Problem": "Founded AuraSleep to build a wearable sleep mask that combines comfort with onboard sensing/intervention hardware — moving from an engineering background into leading full product development.",
         "My role": "Founder and hardware lead — driving the hardware roadmap from concept toward a first working prototype, alongside product and go-to-market decisions.",
@@ -55,7 +55,7 @@ window.SITE_DATA = {
       imageAlt: "Half-bridge induction heater build",
       mediaLabel: "+ Add photo",
       link: "https://github.com/thentd2003/thentd2003.github.io/tree/main/projects/induction-heater",
-      linkLabel: "Files",
+      linkLabel: "Full Report",
       details: {
         "Problem": "Built for a hardware startup that needed a working induction heating stage — a half-bridge driving an LCLR resonant tank to deliver controlled heating power.",
         "Current work": "Redesigning the control approach toward closed-loop PLL tracking, so the drive frequency follows the tank's resonant point automatically instead of running open-loop.",
@@ -74,7 +74,7 @@ window.SITE_DATA = {
       imageAlt: "HV flyback converter board",
       mediaLabel: "+ Add photo / schematic",
       link: "https://github.com/thentd2003/thentd2003.github.io/tree/main/projects/flyback-converter",
-      linkLabel: "Files",
+      linkLabel: "Full Report",
       details: {
         "Problem": "Analytic Systems needed to validate a high-voltage surge disconnect board — protecting a high-voltage inverter from surges up to 1000V (e.g. from lightning) — by generating controlled test surges from a 24V, 2A supply. A flyback converter was chosen for its natural isolation and wide output voltage range.",
         "Approach": "Built a 555-timer oscillator driving a flyback transformer (7.7:1 step-up) through a MOSFET switch, feeding a 7-stage Cockcroft-Walton multiplier to reach up to 1000V. Iterated through two major redesigns after real failures: switched to a 650V MOSFET and added an RCD snubber after transformer kickback destroyed the original 200V device, then added dual coarse/fine potentiometers, a gate resistor, and active cooling to fix control and thermal issues. Packaged in a custom SolidWorks-designed, 3D-printed enclosure.",
@@ -93,7 +93,7 @@ window.SITE_DATA = {
       imageAlt: "CMOS bandgap reference circuit schematic",
       mediaLabel: "+ Add photo",
       link: "https://github.com/thentd2003/thentd2003.github.io/tree/main/projects/bandgap-reference",
-      linkLabel: "Files",
+      linkLabel: "Full Report",
       details: {
         "Problem": "Design and simulate a CMOS bandgap reference (BGR) circuit for an analog IC design course — a stable ~1.2V output largely independent of temperature and supply variation, built from a provided 5μm CMOS process.",
         "Approach": "Chose a current-mirror-based topology over a Brokaw cell for simpler CMOS implementation, combining PTAT and CTAT currents from diode-connected BJTs through a cascoded current mirror, with dedicated startup circuitry to guarantee correct power-on behavior every time.",
@@ -113,7 +113,7 @@ window.SITE_DATA = {
       imageAlt: "Automated motorized soccer tripod",
       mediaLabel: "+ Add photo",
       link: "https://github.com/thentd2003/thentd2003.github.io/tree/main/projects/soccer-tripod",
-      linkLabel: "Files",
+      linkLabel: "Full Report",
       details: {
         "Problem": "[Describe what motivated this build — e.g. hands-free filming of soccer practice or games.]",
         "Approach": "[Describe the mechanical and control design — motors, tracking method, and key decisions you made.]",
@@ -132,7 +132,7 @@ window.SITE_DATA = {
       imageAlt: "5-stage RISC-V pipeline diagram",
       mediaLabel: "+ Add screenshot",
       link: "https://github.com/thentd2003/thentd2003.github.io/tree/main/projects/riscv-simulator",
-      linkLabel: "Files",
+      linkLabel: "Full Report",
       details: {
         "Milestones": "Basic 5-stage pipeline → hazard detection & forwarding → cache integration → two-level cache + branch prediction as a final milestone.",
         "My contribution": "Control and hazard/forwarding logic, the cache subsystem, and the branch predictor's test cases and final report.",
@@ -151,7 +151,7 @@ window.SITE_DATA = {
       imageAlt: "FPGA digital clock on DE10-Standard dev board",
       mediaLabel: "+ Add photo",
       link: "https://github.com/thentd2003/thentd2003.github.io/tree/main/projects/fpga-digital-clock",
-      linkLabel: "Files",
+      linkLabel: "Full Report",
       details: {
         "Problem": "Built as a digital logic project: a real-time clock running entirely on FPGA fabric, with time and alarm both set through onboard buttons — no external microcontroller.",
         "Approach": "Structured as small VHDL modules — a prescaler dividing the 50MHz board clock down for timekeeping, a BCD time counter, a button-driven mode FSM to move between display/set-time/set-alarm states, an alarm-compare block, and a buzzer driver — instantiated together in a top-level entity and checked with dedicated testbenches for the mode FSM and the full clock datapath.",
