@@ -120,16 +120,16 @@ window.SITE_DATA = {
       statusClass: "",
       title: "RISC-V Pipeline Simulator",
       blurb: "A cycle-accurate RISC-V pipeline simulator in C, built with a 4-person team across four milestones for a computer architecture course.",
-      tags: ["C", "Computer Architecture", "Team of 4"],
+      tags: ["C", "Cache Hierarchy", "Branch Prediction"],
       image: "thumbnails/riscv.png",
-      imageAlt: "RISC-V pipeline simulator terminal output",
+      imageAlt: "5-stage RISC-V pipeline diagram",
       mediaLabel: "+ Add screenshot",
       link: "https://github.com/thentd2003/thentd2003.github.io/tree/main/projects/riscv-simulator",
       linkLabel: "Files",
       details: {
-        "Milestones": "Basic 5-stage pipeline → hazard detection & forwarding → cache integration → a final milestone of self-designed architectural extensions.",
-        "My contribution": "[Specify which stages/modules you personally implemented — e.g. hazard unit, cache model, or the custom-innovation milestone.]",
-        "Outcome": "[Add the result of the graded demo, and any performance/correctness metrics from your test suite.]"
+        "Milestones": "Basic 5-stage pipeline → hazard detection & forwarding → cache integration → two-level cache + branch prediction as a final milestone.",
+        "My contribution": "Control and hazard/forwarding logic, the cache subsystem, and the branch predictor's test cases and final report.",
+        "Outcome": "All milestones passed. Caching gave an 11× speedup overall, and the 2-bit branch predictor reached ~97% accuracy."
       }
     },
     {
