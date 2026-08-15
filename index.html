@@ -637,12 +637,25 @@
     <div class="wrap">
       <div class="section-head reveal">
         <div>
-          <p class="eyebrow">// projects</p>
-          <h2>Selected work</h2>
+          <p class="eyebrow">// power-electronics</p>
+          <h2>Power Electronics</h2>
         </div>
-        <p>From a resonant power converter to a cycle-accurate CPU simulator.</p>
+        <p>Circuits that convert, control, and deliver power.</p>
       </div>
-      <div class="projects-grid" id="projectsGrid"></div>
+      <div class="projects-grid" id="projectsGridPower"></div>
+    </div>
+  </section>
+
+  <section id="embedded">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <p class="eyebrow">// embedded-systems</p>
+          <h2>Digital &amp; Embedded Systems</h2>
+        </div>
+        <p>Software and digital logic supporting the hardware.</p>
+      </div>
+      <div class="projects-grid" id="projectsGridEmbedded"></div>
     </div>
   </section>
 
@@ -711,7 +724,8 @@
     metaWrap.appendChild(el('<span class="chip">' + m + '</span>'));
   });
 
-  var grid = document.getElementById('projectsGrid');
+  var gridPower = document.getElementById('projectsGridPower');
+  var gridEmbedded = document.getElementById('projectsGridEmbedded');
   d.projects.forEach(function(p){
     var mediaHTML = p.image
       ? '<div class="project-media"><img src="' + p.image + '" alt="' + (p.imageAlt || '') + '"></div>'
@@ -742,7 +756,7 @@
         '<div class="details"><div class="details__inner">' + detailsHTML + '</div></div>' +
       '</article>'
     );
-    grid.appendChild(card);
+    (p.section === 'embedded' ? gridEmbedded : gridPower).appendChild(card);
   });
 
   var aboutP = document.getElementById('aboutParagraphs');
