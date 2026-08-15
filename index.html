@@ -324,6 +324,34 @@
     text-transform:uppercase;
   }
 
+  /* ---------- Flagship card ---------- */
+  .flagship-card{
+    background:var(--bg-panel);
+    border:1px solid rgba(255,179,0,0.35);
+    border-radius:8px;
+    padding:28px;
+    display:grid;
+    grid-template-columns:1fr 1.3fr;
+    gap:32px;
+    box-shadow:0 0 40px rgba(255,179,0,0.05);
+  }
+  @media (max-width:780px){ .flagship-card{ grid-template-columns:1fr; padding:22px; } }
+  .flagship-card .project-media{
+    aspect-ratio:auto;
+    height:100%;
+    min-height:280px;
+    margin-bottom:0;
+  }
+  @media (max-width:780px){ .flagship-card .project-media{ min-height:200px; } }
+  .flagship-card__body{ display:flex; flex-direction:column; }
+  .flagship-card__body h3{
+    font-family:var(--font-display);
+    font-size:26px;
+    margin:0 0 10px;
+    color:var(--ink);
+  }
+  .flagship-card__body .blurb{ font-size:15.5px; }
+
   .project-card__top{
     display:flex; justify-content:space-between; align-items:center;
     margin-bottom:14px;
@@ -634,6 +662,19 @@
     </div>
   </section>
 
+  <section id="flagship">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <p class="eyebrow">// flagship</p>
+          <h2>What I'm building now</h2>
+        </div>
+        <p>A full product — hardware, firmware, and roadmap — not just a circuit.</p>
+      </div>
+      <div class="flagship-card reveal" id="flagshipCard"></div>
+    </div>
+  </section>
+
   <section id="projects">
     <div class="wrap">
       <div class="section-head reveal">
@@ -725,36 +766,60 @@
     metaWrap.appendChild(el('<span class="chip">' + m + '</span>'));
   });
 
-  var gridPower = document.getElementById('projectsGridPower');
-  var gridEmbedded = document.getElementById('projectsGridEmbedded');
-  d.projects.forEach(function(p){
+  function cardParts(p){
     var mediaHTML = p.image
       ? '<div class="project-media"><img src="' + p.image + '" alt="' + (p.imageAlt || '') + '"></div>'
       : '<div class="project-media project-media--empty"><span>' + (p.mediaLabel || '+ Add photo') + '</span></div>';
-
     var tagsHTML = p.tags.map(function(t){ return '<span class="tag">' + t + '</span>'; }).join('');
-
     var detailsHTML = Object.keys(p.details).map(function(k){
       var text = p.details[k];
       var cls = isPlaceholder(text) ? ' class="placeholder"' : '';
       return '<div class="details__block"><b>' + k + '</b><p' + cls + '>' + text + '</p></div>';
     }).join('');
+    var footHTML =
+      '<div class="card-foot">' +
+        '<button class="toggle-btn" aria-expanded="false" data-toggle><span class="plus">+</span><span class="label"> Case study</span></button>' +
+        '<div class="link-row"><a href="' + (p.link || '#') + '" target="_blank" rel="noopener">' + (p.linkLabel || 'Link') + '</a></div>' +
+      '</div>';
+    return { mediaHTML: mediaHTML, tagsHTML: tagsHTML, detailsHTML: detailsHTML, footHTML: footHTML };
+  }
 
+  // Flagship (rendered separately, outside both grids)
+  var flagshipProject = d.projects.find(function(p){ return p.flagship; });
+  if(flagshipProject){
+    var fp = flagshipProject;
+    var fc = cardParts(fp);
+    document.getElementById('flagshipCard').innerHTML =
+      fc.mediaHTML +
+      '<div class="flagship-card__body">' +
+        '<div class="project-card__top">' +
+          '<span class="designator">' + fp.designator + '</span>' +
+          '<span class="status-pill ' + (fp.statusClass || '') + '">' + fp.status + '</span>' +
+        '</div>' +
+        '<h3>' + fp.title + '</h3>' +
+        '<p class="blurb">' + fp.blurb + '</p>' +
+        '<div class="tag-row">' + fc.tagsHTML + '</div>' +
+        fc.footHTML +
+        '<div class="details"><div class="details__inner">' + fc.detailsHTML + '</div></div>' +
+      '</div>';
+  }
+
+  var gridPower = document.getElementById('projectsGridPower');
+  var gridEmbedded = document.getElementById('projectsGridEmbedded');
+  d.projects.filter(function(p){ return !p.flagship; }).forEach(function(p){
+    var c = cardParts(p);
     var card = el(
       '<article class="project-card reveal">' +
         '<div class="project-card__top">' +
           '<span class="designator">' + p.designator + '</span>' +
           '<span class="status-pill ' + (p.statusClass || '') + '">' + p.status + '</span>' +
         '</div>' +
-        mediaHTML +
+        c.mediaHTML +
         '<h3>' + p.title + '</h3>' +
         '<p class="blurb">' + p.blurb + '</p>' +
-        '<div class="tag-row">' + tagsHTML + '</div>' +
-        '<div class="card-foot">' +
-          '<button class="toggle-btn" aria-expanded="false" data-toggle><span class="plus">+</span><span class="label"> Case study</span></button>' +
-          '<div class="link-row"><a href="' + (p.link || '#') + '" target="_blank" rel="noopener">' + (p.linkLabel || 'Link') + '</a></div>' +
-        '</div>' +
-        '<div class="details"><div class="details__inner">' + detailsHTML + '</div></div>' +
+        '<div class="tag-row">' + c.tagsHTML + '</div>' +
+        c.footHTML +
+        '<div class="details"><div class="details__inner">' + c.detailsHTML + '</div></div>' +
       '</article>'
     );
     (p.section === 'embedded' ? gridEmbedded : gridPower).appendChild(card);
