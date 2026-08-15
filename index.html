@@ -429,18 +429,22 @@
     font-size:11.5px;
     letter-spacing:0.04em;
     text-transform:uppercase;
-    color:var(--ink);
+    color:var(--phosphor);
     text-decoration:none;
-    border:1px solid var(--line-strong);
+    border:1px solid rgba(255,179,0,0.45);
     border-radius:var(--radius);
     padding:7px 13px;
-    background:rgba(234,230,217,0.03);
+    background:rgba(255,179,0,0.10);
     display:inline-flex;
     align-items:center;
     gap:5px;
-    transition:border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+    transition:background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
   }
-  .link-row a:hover{ color:var(--phosphor); border-color:var(--phosphor); background:rgba(255,179,0,0.08); }
+  .link-row a:hover{
+    color:var(--bg);
+    background:var(--phosphor);
+    box-shadow:0 0 16px rgba(255,179,0,0.35);
+  }
 
   .details{
     max-height:0;
