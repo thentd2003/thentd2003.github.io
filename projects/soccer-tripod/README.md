@@ -1,6 +1,6 @@
 # SoccerCam
 
-A motorized phone-tripod head that tracks a soccer ball in real time. The phone runs on-device ball detection and sends movement commands over Bluetooth to a microcontroller, which drives pan/tilt motors to keep the ball framed — no separate camera, no cloud processing, no wireless-tethered motor unit.
+A motorized phone-tripod head that tracks a soccer ball in real time. The phone runs on-device ball detection and sends movement commands over Bluetooth to a microcontroller, which drives a pan motor to keep the ball framed — no separate camera, no cloud processing, no wireless-tethered motor unit.
 
 This repo covers the **hardware, mechanical design, and firmware** side of the project.
 
@@ -13,7 +13,7 @@ This repo covers the **hardware, mechanical design, and firmware** side of the p
 1. The phone detects the ball on-device (Apple Vision/CoreML) and computes a normalized offset from center.
 2. That offset is run through a proportional controller with an expo response curve and deadzone, producing a signed speed command (e.g. `T:-42`).
 3. The command is sent over BLE to the ESP32.
-4. The ESP32 scales the command into motor output and drives the pan (servo) / tilt (stepper) motors, enforcing soft and hard travel limits.
+4. The ESP32 scales the command into motor output and drives the pan servo, enforcing soft and hard travel limits.
 5. Position is tracked via dead reckoning, corrected against a limit switch at the home position (the continuous-rotation servo used for pan has no absolute position feedback, so this correction is what makes homing possible).
 6. A tracking watchdog stops the motor if BLE updates go stale, so the rig doesn't run away if the phone loses tracking.
 
@@ -23,7 +23,6 @@ This repo covers the **hardware, mechanical design, and firmware** side of the p
 |---|---|
 | Microcontroller | ESP32 |
 | Pan motor | SG90 continuous-rotation servo |
-| Tilt motor | 28BYJ-48 stepper + ULN2003AN driver (placeholder) |
 | Homing | SPDT micro limit switch |
 | Bearing | 608ZZ (8×22×7mm) |
 | Gearing | Custom 3D-printed bevel gears — module 1.5, 45T fixed / 30T pinion, 56.25mm center distance, 1.5:1 ratio |
@@ -39,7 +38,6 @@ Single-file non-blocking state machine (`SoccerCam.ino`), built on:
 
 - **NimBLE-Arduino** (h2zero) — BLE server, receives tracking commands from the phone
 - **ESP32Servo** (Kevin Harrington / John K. Bennett) — pan servo control
-- **AccelStepper** — tilt stepper control (placeholder)
 
 Key design points:
 
