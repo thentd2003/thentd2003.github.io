@@ -58,6 +58,8 @@ These are empirically tuned against the physical build, not computed:
 
 ## Mechanical design
 
+![Exploded view of the pan drive assembly](images/pan-assembly-exploded.png)
+
 Designed in SolidWorks (Toolbox for gear configuration). Bevel gears were chosen over a worm-gear approach because FDM-printed worm gears are unreliable at these tolerances, and the layout — servo not co-located with the rotating platform, platform on its own dedicated bearing — calls for right-angle torque transmission with both gears supported close to their respective bearings to avoid mesh flex under load.
 
 Bearing seat bores follow: `bore = nominal OD + (0.53–0.6 × nozzle diameter)`. A relief cut on the gear hub's underside ensures the retaining nut contacts only the bearing's outer race, preventing the race from locking up.
