@@ -25,10 +25,9 @@ window.SITE_DATA = {
   projects: [
     {
       designator: "U1",
-      section: "power",
-      flagship: true,
-      status: "Flagship · In Progress",
-      statusClass: "is-flagship",
+      section: "embedded",
+      status: "In Progress",
+      statusClass: "is-progress",
       title: "AuraSleep — Smart Sleep Mask",
       blurb: "Founder & hardware lead on a sleep-tech wearable — currently taking the hardware from concept to a first working milestone.",
       tags: ["PCB Design", "Embedded Systems", "Product Dev"],
