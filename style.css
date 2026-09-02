@@ -487,12 +487,16 @@ section:last-of-type{ border-bottom:none; }
 .lab-row p{ margin:0; font-size:13.5px; color:var(--ink-muted); }
 
 /* ---------- About ---------- */
-.about-grid{ }
+.about-grid{ min-width:0; }
 .about-photo{
   margin:32px 0 0;
+  width:100%;
+  max-width:100%;
+  min-width:0;
 }
 .about-photo img{
   width:100%;
+  max-width:100%;
   display:block;
   border-radius:6px;
   border:1px solid var(--line-strong);
