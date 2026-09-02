@@ -18,6 +18,10 @@ A first working driver came together in about a month using a basic self-oscilla
 
 What followed was a self-taught rebuild from the ground up: induction heating theory, hand-selected operating frequency, and manually sized tank capacitors and coil inductance, driven through an **IRS21531D** self-oscillating half-bridge driver IC.
 
+![V1 build — perfboard driver, gate transformer, and induction coil](images/induction-heater-v1-build-1.jpg)
+![V1 build — full bench setup with the work coil around a copper cup](images/induction-heater-v1-build-2.jpg)
+*The V1 prototype: perfboard IRS21531D driver stage feeding a hand-wound copper work coil.*
+
 **Key failures worked through on the way to a stable design:**
 
 - Driving the LCLR tank at 150kHz pushed the IRS21531D past its gate current sourcing/sinking limits, causing severe gate signal distortion that forced the converter into the unstable "Left Pole" capacitive region.
@@ -27,6 +31,12 @@ What followed was a self-taught rebuild from the ground up: induction heating th
 - Repeated hardware casualties along the way: burned MOSFETs, dead gate driver ICs, overcurrent failures.
 
 **Fixes that got it stable:** lowered the target operating frequency to roughly 70kHz by paralleling additional MKP film capacitors onto the tank, and split the power delivery into a 24V main MOSFET bus with its own separate 12–15V logic rail, so high-current transients on the power side couldn't trip UVLO on the driver.
+
+![Measured work coil inductance on an LCR bridge](images/induction-heater-coil-inductance.jpg)
+*Work coil inductance measured on an LCR bridge — the kind of hand-measured value that went into sizing the tank.*
+
+![Oscilloscope capture of the ~70kHz drive waveform](images/induction-heater-scope-waveform.jpg)
+*Drive and tank waveforms on the scope, confirming the stabilized ~66–70kHz operating point.*
 
 **Outcome:** V1 met the founder's target — heating a steel cup of water to 60°C in 60 seconds — running the stabilized IRS21531D driver at ~70kHz off the 24V bus, with operating frequency set manually via a potentiometer.
 
