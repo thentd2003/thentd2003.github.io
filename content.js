@@ -45,10 +45,10 @@ window.SITE_DATA = {
     {
       designator: "U2",
       section: "power",
-      status: "Complete",
-      statusClass: "",
+      status: "In Progress",
+      statusClass: "is-progress",
       title: "Half-Bridge Resonant Induction Heater",
-      blurb: "An LCLR resonant induction heater built for a hardware startup, now mid-redesign toward closed-loop PLL frequency control.",
+      blurb: "A 500W-class, 12V half-bridge LCLR resonant induction heater — recovered from an unstable first driver design to a validated V1 (60°C in 60s), now rebuilt around a closed-loop PLL for real-time frequency tracking through the workpiece's Curie point.",
       tags: ["Half-Bridge", "LCLR Resonant Tank", "PLL Control"],
       image: "thumbnails/induction_heater.jpg",
       imageAlt: "Half-bridge induction heater build",
@@ -56,9 +56,9 @@ window.SITE_DATA = {
       link: "https://github.com/thentd2003/thentd2003.github.io/tree/main/projects/induction-heater",
       linkLabel: "Full Report",
       details: {
-        "Problem": "Built for a hardware startup that needed a working induction heating stage — a half-bridge driving an LCLR resonant tank to deliver controlled heating power.",
-        "Current work": "Redesigning the control approach toward closed-loop PLL tracking, so the drive frequency follows the tank's resonant point automatically instead of running open-loop.",
-        "Outcome": "[Add power delivered, switching frequency range, and what the PLL redesign is expected to improve once complete.]"
+        "Problem": "Joined a friend's hardware startup as lead engineer, tasked with designing and building the company's induction heater from scratch — meeting his product requirements and integrating it with his MCU/control board.",
+        "Approach": "A first working prototype came together in about a month using a basic Mazzilli ZVS driver, but it was quickly clear the circuit had no real control over its own switching — too unpredictable and unstable for a commercial product. I spent the next several months teaching myself induction heating theory from the ground up and rebuilt the circuit myself, hand-selecting the operating frequency and sizing the tank capacitors and coil inductance. Along the way I burned through MOSFETs, killed gate driver ICs, and worked through repeated overcurrent failures before landing on a stable design.",
+        "Outcome": "Reached a functional V1 prototype in April 2026, meeting the target of heating a steel cup of water to 60°C in 60 seconds. The startup lost its funding and shut down before I could finish the integration work, so I've since kept upgrading the design on my own — replacing the potentiometer-set operating frequency, which can't track the tank's resonance drifting as the steel workpiece crosses its Curie point mid-heat, with a PLL feedback loop that locks the drive frequency to the optimal point automatically. PCB design for that revision is in progress now."
       }
     },
     {
