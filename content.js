@@ -26,10 +26,10 @@ window.SITE_DATA = {
     {
       designator: "U1",
       section: "embedded",
-      status: "In Progress",
-      statusClass: "is-progress",
+      status: "On Hold",
+      statusClass: "",
       title: "AuraSleep — Smart Sleep Mask",
-      blurb: "Founder & hardware lead on a sleep-tech wearable — currently taking the hardware from concept to a first working milestone.",
+      blurb: "A hardware startup I co-founded with two partners to build a sleep-tech wearable — validated through customer research and mentor pitches, developed through to finished schematics.",
       tags: ["PCB Design", "Embedded Systems", "Product Dev"],
       image: "thumbnails/aurasleep.jpg",
       imageAlt: "AuraSleep sleep mask prototype",
@@ -37,9 +37,9 @@ window.SITE_DATA = {
       link: "https://github.com/thentd2003/thentd2003.github.io/tree/main/projects/aurasleep",
       linkLabel: "Full Report",
       details: {
-        "Problem": "Founded AuraSleep to build a wearable sleep mask that combines comfort with onboard sensing/intervention hardware — moving from an engineering background into leading full product development.",
-        "My role": "Founder and hardware lead — driving the hardware roadmap from concept toward a first working prototype, alongside product and go-to-market decisions.",
-        "Status": "[Add current milestone — e.g. \"first working prototype achieved MM/YYYY\" — plus any specs, sensor list, or power budget once finalized.]"
+        "Problem": "Co-founded AuraSleep with two partners to build a wearable sleep mask combining comfort with onboard sensing hardware. Before building anything, we ran market research, surveys, and customer interviews to confirm the problem and the market gap were real.",
+        "My role": "Co-founder and hardware lead — driving PCB and electronics design, while also working the business side: pitching to mentors repeatedly, taking their feedback (not always easy to hear), and redesigning the product each time we learned something new.",
+        "Status": "Finished schematics and the full technology research, with PCB design and mask integration as the planned next step."
       }
     },
     {
