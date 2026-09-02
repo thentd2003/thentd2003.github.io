@@ -91,9 +91,11 @@
     });
 
     var aboutFacts = document.getElementById('aboutFacts');
-    d.about.facts.forEach(function(f){
-      aboutFacts.appendChild(el('<div><span>' + f[0] + '</span><span>' + f[1] + '</span></div>'));
-    });
+    if(aboutFacts){
+      d.about.facts.forEach(function(f){
+        aboutFacts.appendChild(el('<div><span>' + f[0] + '</span><span>' + f[1] + '</span></div>'));
+      });
+    }
   }
 
   // ---------- Footer / contact (both pages, if present) ----------
