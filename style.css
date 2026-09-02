@@ -487,9 +487,7 @@ section:last-of-type{ border-bottom:none; }
 .lab-row p{ margin:0; font-size:13.5px; color:var(--ink-muted); }
 
 /* ---------- About ---------- */
-.about-grid{
-  max-width:640px;
-}
+.about-grid{ }
 .about-grid p{ color:var(--ink-dim); font-size:15px; margin:0 0 16px; text-align:justify; text-justify:inter-word; hyphens:auto; }
 
 /* ---------- Footer / contact ---------- */
