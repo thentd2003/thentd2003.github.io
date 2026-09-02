@@ -488,15 +488,9 @@ section:last-of-type{ border-bottom:none; }
 
 /* ---------- About ---------- */
 .about-grid{
-  display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:start;
+  max-width:640px;
 }
-@media (max-width:780px){ .about-grid{ grid-template-columns:1fr; } }
-.about-grid p{ color:var(--ink-dim); font-size:15px; margin:0 0 16px; }
-.about-facts{ display:flex; flex-direction:column; gap:0; border:1px solid var(--line-strong); border-radius:6px; overflow:hidden; }
-.about-facts div{ display:flex; justify-content:space-between; gap:16px; padding:13px 16px; border-bottom:1px solid var(--line); font-family:var(--font-mono); font-size:12.5px; }
-.about-facts div:last-child{ border-bottom:none; }
-.about-facts span:first-child{ color:var(--ink-muted); }
-.about-facts span:last-child{ color:var(--ink); text-align:right; }
+.about-grid p{ color:var(--ink-dim); font-size:15px; margin:0 0 16px; text-align:justify; text-justify:inter-word; hyphens:auto; }
 
 /* ---------- Footer / contact ---------- */
 footer{ padding:64px 0 40px; }
