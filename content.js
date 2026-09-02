@@ -162,14 +162,11 @@ window.SITE_DATA = {
 
   about: {
     paragraphs: [
-      "I come from a hardware engineering background and have been moving toward leading full products, not just circuits — founding AuraSleep pushed me to own everything from PCB design to the product roadmap.",
-      "I'm most energized by hands-on technical work: power electronics, embedded systems, and the kind of debugging that happens with an oscilloscope probe in hand. I'm currently looking for my final co-op placement, ideally somewhere I can keep building hands-on hardware at a larger scale."
-    ],
-    facts: [
-      ["Focus", "Power Electronics & Embedded Systems"],
-      ["Currently", "Founder, AuraSleep"],
-      ["Looking for", "Final Co-op Placement"],
-      ["Studying in", "Canada"]
+      "Curiosity is where this all started. As a kid I'd take things apart just to understand them — chasing YouTube tutorials and DIY shows, then building my own breadboard-messy projects once I got my hands on an Arduino in high school, teaching myself to code because I wanted my ideas to actually do something.",
+      "A coop placement is where that curiosity turned into a calling. Seeing a product come together — PCB design, embedded systems, real engineering decisions with real consequences — hit different than anything in a classroom, and it was enough to make me switch my major to ENSC's electronics concentration without a second thought. I'd already taught myself CAD and bought a 3D printer on faith before that term even started, and when the coop finally gave me a real problem to solve — designing a test jig from scratch — I threw everything I'd taught myself at it. That's who I am: give me a goal I don't know how to reach yet, and I will find a way to learn into it.",
+      "Today that drive shows up as real, tangible skill. I'm strongest in circuit and PCB design — carrying something from a schematic to a working, tested board — and I care enough about it to keep a personal electronics lab bench at home. I can hold my own in firmware and code, and in SolidWorks when a prototype or test jig needs to exist in the physical world. What I'm really proud of is the whole loop: I can take an idea and carry it, myself, from a rough sketch to something real in my hands.",
+      "Wanting to build something entirely my own is what led me to co-found AuraSleep with two partners. We didn't just chase the engineering — we ran market research, surveys, and customer interviews to make sure the problem we were solving was real, and pitched to mentors more times than I can count. Some of that feedback stung. We kept going anyway, redesigning and reframing the product every time we learned something new, until we had working schematics and the technology fully researched. It didn't end the way I'd hoped, but running my own startup taught me more about resilience, and about myself, than almost anything else I've done — and it changed how I think about building things for good.",
+      "Outside of engineering, I chase the same restlessness in other ways — soccer, hiking, badminton, tennis, and traveling to new countries just to see how other people live and build their lives. I'm currently looking for my final co-op placement, and I'm looking for the same thing I've always chased: a problem worth throwing myself at."
     ]
   }
 
