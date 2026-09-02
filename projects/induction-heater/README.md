@@ -30,7 +30,7 @@ What followed was a self-taught rebuild from the ground up: induction heating th
 - Under-Voltage Lockout (UVLO) transients reset the driver mid-run during high-current draws.
 - Repeated hardware casualties along the way: burned MOSFETs, dead gate driver ICs, overcurrent failures.
 
-**Fixes that got it stable:** lowered the target operating frequency to roughly 70kHz by paralleling additional MKP film capacitors onto the tank, and split the power delivery into a 24V main MOSFET bus with its own separate 12–15V logic rail, so high-current transients on the power side couldn't trip UVLO on the driver.
+**Fixes that got it stable:** lowered the target operating frequency to roughly 70kHz by paralleling additional MKP film capacitors onto the tank, and split the power delivery into a 12V main MOSFET bus with its own separate logic rail, so high-current transients on the power side couldn't trip UVLO on the driver.
 
 ![Measured work coil inductance on an LCR bridge](images/induction-heater-coil-inductance.jpg)
 *Work coil inductance measured on an LCR bridge — the kind of hand-measured value that went into sizing the tank.*
@@ -38,7 +38,7 @@ What followed was a self-taught rebuild from the ground up: induction heating th
 ![Oscilloscope capture of the ~70kHz drive waveform](images/induction-heater-scope-waveform.jpg)
 *Drive and tank waveforms on the scope, confirming the stabilized ~66–70kHz operating point.*
 
-**Outcome:** V1 met the founder's target — heating a steel cup of water to 60°C in 60 seconds — running the stabilized IRS21531D driver at ~70kHz off the 24V bus, with operating frequency set manually via a potentiometer.
+**Outcome:** V1 met the founder's target — heating a steel cup of water to 60°C in 60 seconds — running the stabilized IRS21531D driver at ~70kHz off the 12V bus, with operating frequency set manually via a potentiometer.
 
 The startup lost its funding and shut down before the MCU/control-board integration work was finished.
 
@@ -48,7 +48,7 @@ The open-loop, fixed-frequency topology had a structural limitation: it couldn't
 
 After the shutdown, I kept developing the design on my own, rebuilding it around closed-loop control:
 
-- **Power bus dropped to 12V** (down from 24V) for a safer thermal envelope — currently sized for roughly 500W.
+- **Power bus kept at 12V**, currently sized for roughly 500W.
 - **Half-bridge power stage:** IRFZ44N MOSFETs (Q1/Q2) driven by an **IR2110** high/low-side gate driver, with gate resistors and anti-parallel Schottky diodes (SS13LS) on each gate for asymmetric turn-on/turn-off timing. A 10µH inductor (L1) and a parallel capacitor bank (C10–C15) form the resonant tank, tapped at `tank_fb` for feedback.
 - **PLL feedback network:** the `tank_fb` voltage feedback is squared into a clean clock edge by an **LM311** comparator, which feeds the phase comparator of a **CD4046** PLL IC. The CD4046's VCO output is shaped into the complementary drive signals the IR2110 needs by a **CD4013** dual flip-flop.
 - No current-sense transformer in this version — feedback is purely voltage-based, tapped directly off the tank.
