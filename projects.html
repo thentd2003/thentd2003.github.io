@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects — Hardware Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <a href="index.html" class="nav__mark" id="navMark"></a>
+    <ul class="nav__links">
+      <li><a href="#power">Power</a></li>
+      <li><a href="#embedded">Embedded</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a class="btn-resume" id="resumeLink" target="_blank" rel="noopener">Resume ↓</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <div class="wrap">
+    <a class="back-link" href="index.html">← Back to profile</a>
+  </div>
+
+  <section id="power" style="padding-top:24px;">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <p class="eyebrow">// power-electronics</p>
+          <h2>Power Electronics</h2>
+        </div>
+        <p>Circuits that convert, control, and deliver power.</p>
+      </div>
+      <div class="projects-grid" id="projectsGridPower"></div>
+    </div>
+  </section>
+
+  <section id="embedded">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <p class="eyebrow">// embedded-systems</p>
+          <h2>Digital &amp; Embedded Systems</h2>
+        </div>
+        <p>Software and digital logic supporting the hardware.</p>
+      </div>
+      <div class="projects-grid" id="projectsGridEmbedded"></div>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h2>Let's talk.</h2>
+        <p class="footer-sub">Open to co-op and hardware engineering conversations — reach out any time.</p>
+      </div>
+      <div class="footer-links" id="footerLinks"></div>
+    </div>
+    <div class="wrap fine-print">
+      <span id="footerName"></span>
+      <span>Built by hand, no template.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- All page content lives in content.js — edit that file, not this one. -->
+<script src="content.js"></script>
+<script src="main.js"></script>
+
+</body>
+</html>
