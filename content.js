@@ -107,7 +107,7 @@ window.SITE_DATA = {
       status: "In-Progress",
       statusClass: "",
       title: "Automated Motorized Soccer Tripod",
-      blurb: "[Add a one-sentence description of what this device does and why you built it.]",
+      blurb: "A motorized tripod that pans automatically to keep a soccer ball centered in frame, built for hands-free match filming — mechanical design, firmware, and BLE control all self-built, currently in hardware calibration.",
       tags: ["Motor Control", "Embedded Systems", "Automation"],
       image: "thumbnails/soccer_tripod.jpg",
       imageAlt: "Automated motorized soccer tripod",
@@ -115,9 +115,9 @@ window.SITE_DATA = {
       link: "https://github.com/thentd2003/thentd2003.github.io/tree/main/projects/soccer-tripod",
       linkLabel: "Full Report",
       details: {
-        "Problem": "[Describe what motivated this build — e.g. hands-free filming of soccer practice or games.]",
-        "Approach": "[Describe the mechanical and control design — motors, tracking method, and key decisions you made.]",
-        "Outcome": "[Add the result — tracking accuracy, reliability, or a link to demo footage.]"
+        "Problem": "Wanted a reliable way to film full soccer matches with my team without needing someone dedicated to holding a phone — for reviewing and improving play, and just as often, to see ourselves play.",
+        "Approach": "Designed the full pan drive in SolidWorks — reverse-engineered a bought tripod's mounting socket by hand, then built the platform, gears, and bearings around it. Mid-build, the SG90 servo the housing was designed for turned out to max out at 180°, so I swapped to a continuous-rotation SG90 and wrote a software encoder (dead-reckoned position tracking corrected against a limit switch) to recover positional control. Own the BLE protocol between phone and ESP32, plus the tracking algorithm converting the phone's ball-offset detection into motor commands.",
+        "Outcome": "Hardware built and integrated; currently calibrating motion constants (speed, timing, homing) against the physical rig."
       }
     },
     {
