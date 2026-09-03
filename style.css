@@ -159,6 +159,9 @@ header{
   color:var(--ink-dim);
   max-width:46ch;
   margin:0 0 26px;
+  text-align:justify;
+  text-justify:inter-word;
+  hyphens:auto;
 }
 .hero__meta{
   display:flex; flex-wrap:wrap; gap:10px;
@@ -282,9 +285,10 @@ section:last-of-type{ border-bottom:none; }
 
 /* ---------- Project links teaser (profile page) ---------- */
 .teaser-grid{
-  display:grid; grid-template-columns:1fr 1fr; gap:20px;
+  display:grid; grid-template-columns:repeat(3, 1fr); gap:20px;
 }
-@media (max-width:780px){ .teaser-grid{ grid-template-columns:1fr; } }
+@media (max-width:960px){ .teaser-grid{ grid-template-columns:1fr 1fr; } }
+@media (max-width:640px){ .teaser-grid{ grid-template-columns:1fr; } }
 .teaser-card{
   display:block;
   background:var(--bg-panel);
