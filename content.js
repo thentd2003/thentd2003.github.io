@@ -25,25 +25,6 @@ window.SITE_DATA = {
   projects: [
     {
       designator: "U1",
-      section: "embedded",
-      status: "On Hold",
-      statusClass: "",
-      title: "AuraSleep — Smart Sleep Mask",
-      blurb: "A hardware startup I co-founded with two partners to build a sleep-tech wearable — validated through customer research and mentor pitches, developed through to finished schematics.",
-      tags: ["PCB Design", "Embedded Systems", "Product Dev"],
-      image: "thumbnails/aurasleep.jpg",
-      imageAlt: "AuraSleep sleep mask prototype",
-      mediaLabel: "+ Add photo",
-      link: "https://github.com/thentd2003/thentd2003.github.io/tree/main/projects/aurasleep",
-      linkLabel: "Full Report",
-      details: {
-        "Problem": "Co-founded AuraSleep with two partners to build a wearable sleep mask combining comfort with onboard sensing hardware. Before building anything, we ran market research, surveys, and customer interviews to confirm the problem and the market gap were real.",
-        "My role": "Co-founder and hardware lead — driving PCB and electronics design, while also working the business side: pitching to mentors repeatedly, taking their feedback (not always easy to hear), and redesigning the product each time we learned something new.",
-        "Status": "Finished schematics and the full technology research, with PCB design and mask integration as the planned next step."
-      }
-    },
-    {
-      designator: "U2",
       section: "power",
       status: "In Progress",
       statusClass: "is-progress",
@@ -62,7 +43,7 @@ window.SITE_DATA = {
       }
     },
     {
-      designator: "U3",
+      designator: "U2",
       section: "power",
       status: "Complete",
       statusClass: "",
@@ -81,7 +62,7 @@ window.SITE_DATA = {
       }
     },
     {
-      designator: "U4",
+      designator: "U3",
       section: "power",
       status: "Complete",
       statusClass: "",
@@ -98,6 +79,25 @@ window.SITE_DATA = {
         "Approach": "Chose a current-mirror-based topology over a Brokaw cell for simpler CMOS implementation, combining PTAT and CTAT currents from diode-connected BJTs through a cascoded current mirror, with dedicated startup circuitry to guarantee correct power-on behavior every time.",
         "My contribution": "Simulations and report — building and iterating the OrCAD X simulations and writing up the results.",
         "Outcome": "Measured a 99.6 ppm/°C temperature coefficient across 0–100°C (target was ≤100 ppm/°C), 5mW power consumption, and — after adding 10μF/0.1μF output decoupling — near-complete suppression of ripple from a 1VAC line-noise injection test."
+      }
+    },
+    {
+      designator: "U4",
+      section: "embedded",
+      status: "On Hold",
+      statusClass: "",
+      title: "AuraSleep — Smart Sleep Mask",
+      blurb: "A hardware startup I co-founded with two partners to build a sleep-tech wearable — validated through customer research and mentor pitches, developed through to finished schematics.",
+      tags: ["PCB Design", "Embedded Systems", "Product Dev"],
+      image: "thumbnails/aurasleep.jpg",
+      imageAlt: "AuraSleep sleep mask prototype",
+      mediaLabel: "+ Add photo",
+      link: "https://github.com/thentd2003/thentd2003.github.io/tree/main/projects/aurasleep",
+      linkLabel: "Full Report",
+      details: {
+        "Problem": "Co-founded AuraSleep with two partners to build a wearable sleep mask combining comfort with onboard sensing hardware. Before building anything, we ran market research, surveys, and customer interviews to confirm the problem and the market gap were real.",
+        "My role": "Co-founder and hardware lead — driving PCB and electronics design, while also working the business side: pitching to mentors repeatedly, taking their feedback (not always easy to hear), and redesigning the product each time we learned something new.",
+        "Status": "Finished schematics and the full technology research, with PCB design and mask integration as the planned next step."
       }
     },
     {
