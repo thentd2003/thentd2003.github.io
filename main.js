@@ -62,7 +62,8 @@
   // ---------- Project grids (projects page only) ----------
   var gridPower = document.getElementById('projectsGridPower');
   var gridEmbedded = document.getElementById('projectsGridEmbedded');
-  if(gridPower || gridEmbedded){
+  var gridDigital = document.getElementById('projectsGridDigital');
+  if(gridPower || gridEmbedded || gridDigital){
     d.projects.forEach(function(p){
       var c = cardParts(p);
       var card = el(
@@ -79,7 +80,8 @@
           '<div class="details"><div class="details__inner">' + c.detailsHTML + '</div></div>' +
         '</article>'
       );
-      (p.section === 'embedded' ? gridEmbedded : gridPower).appendChild(card);
+      var targetGrid = p.section === 'digital' ? gridDigital : (p.section === 'embedded' ? gridEmbedded : gridPower);
+      targetGrid.appendChild(card);
     });
   }
 
