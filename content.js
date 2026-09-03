@@ -121,7 +121,7 @@ window.SITE_DATA = {
     },
     {
       designator: "U6",
-      section: "embedded",
+      section: "digital",
       status: "Complete",
       statusClass: "",
       title: "RISC-V Pipeline Simulator",
@@ -140,7 +140,7 @@ window.SITE_DATA = {
     },
     {
       designator: "U7",
-      section: "embedded",
+      section: "digital",
       status: "Complete",
       statusClass: "",
       title: "FPGA Digital Clock",
