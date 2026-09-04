@@ -149,6 +149,7 @@ header{
   letter-spacing:-0.01em;
   margin:0 0 18px;
   color:var(--ink);
+  text-wrap:balance;
 }
 .hero h1 em{
   font-style:normal;
