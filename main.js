@@ -31,7 +31,7 @@
   // ---------- Hero (profile page only) ----------
   if(document.getElementById('heroHeadline')){
     document.getElementById('heroHeadline').innerHTML =
-      d.name + ' builds <em>' + d.headlineHighlight + '</em> underneath hardware.';
+      d.name + ' builds <em>' + d.headlineHighlight + '</em> that power real hardware.';
     document.getElementById('heroSub').textContent = d.tagline;
 
     var metaWrap = document.getElementById('heroMeta');
