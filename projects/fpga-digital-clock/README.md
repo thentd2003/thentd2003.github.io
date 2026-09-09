@@ -19,4 +19,3 @@ VHDL digital clock built for a Cyclone V FPGA dev board (device 5CSXFC6D6F31C6).
 - Registers: 153
 - Pins used: 61 / 499 (12%)
 
-Drop any additional docs, photos, or demo footage links here.
