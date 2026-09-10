@@ -152,10 +152,10 @@ window.SITE_DATA = {
       link: "https://github.com/thentd2003/thentd2003.github.io/tree/main/projects/fpga-digital-clock",
       linkLabel: "Full Report",
       details: {
-        "Problem": "Built as a digital logic project: a real-time clock running entirely on FPGA fabric, with time and alarm both set through onboard buttons — no external microcontroller.",
-        "Approach": "Structured as small VHDL modules — a prescaler dividing the 50MHz board clock down for timekeeping, a BCD time counter, a button-driven mode FSM to move between display/set-time/set-alarm states, an alarm-compare block, and a buzzer driver — instantiated together in a top-level entity and checked with dedicated testbenches for the mode FSM and the full clock datapath.",
-        "My contribution": "Designed and implemented the entire datapath and control logic solo — the BCD time counter with correct 24-hour rollover, the one-hot mode FSM with button debouncing, digit-by-digit time/alarm entry with per-digit wraparound, the alarm comparator, the display driver, and the clock-domain-crossing logic that safely moves commit pulses from the 50MHz button domain to the 1Hz counter — plus the testbenches used to verify each piece before synthesis.",
-        "Outcome": "Synthesized cleanly on the Cyclone V target — 186 of 41,910 ALMs (< 1%) and 153 registers used. [Add confirmation of hardware demo/testing and any timing notes.]"
+       "Problem": "A real-time clock running entirely on FPGA fabric — time and alarm both set via onboard buttons, no microcontroller.",
+"Approach": "Small VHDL modules — prescaler, BCD time counter, button-driven mode FSM, alarm comparator, buzzer driver — wired together in a top-level entity and verified with testbenches for the mode FSM and full clock datapath.",
+"My contribution": "Designed and implemented the entire datapath and control logic solo: the BCD time counter with 24-hour rollover, the one-hot mode FSM with button debouncing, digit-by-digit time/alarm entry, the alarm comparator, the display driver, the 50MHz→1Hz clock-domain-crossing logic for commit pulses, and the testbenches.",
+"Outcome": "Synthesized cleanly on the Cyclone V target — 186/41,910 ALMs (<1%), 153 registers — and ran correctly on the DE10-Standard, with all button, display, and alarm behavior working as designed."
       }
     }
   ],
