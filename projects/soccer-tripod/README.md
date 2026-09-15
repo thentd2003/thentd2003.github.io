@@ -2,6 +2,8 @@
 
 A motorized phone-tripod head that tracks a soccer ball in real time. The phone runs on-device ball detection and sends movement commands over Bluetooth to a microcontroller, which drives a pan motor to keep the ball framed — no separate camera, no cloud processing, no wireless-tethered motor unit.
 
+![Assembled rig on the tripod, ESP32 and wiring visible at the base](images/soccercam-hero-tripod.jpg)
+
 This repo covers the **hardware, mechanical design, and firmware** side of the project.
 
 ## Status
@@ -63,6 +65,11 @@ These are empirically tuned against the physical build, not computed:
 Designed in SolidWorks (Toolbox for gear configuration). Bevel gears were chosen over a worm-gear approach because FDM-printed worm gears are unreliable at these tolerances, and the layout — servo not co-located with the rotating platform, platform on its own dedicated bearing — calls for right-angle torque transmission with both gears supported close to their respective bearings to avoid mesh flex under load.
 
 Bearing seat bores follow: `bore = nominal OD + (0.53–0.6 × nozzle diameter)`. A relief cut on the gear hub's underside ensures the retaining nut contacts only the bearing's outer race, preventing the race from locking up.
+
+The assembled build, matching the CAD above:
+
+![Assembled gear pair, top view](images/soccercam-gear-assembly-top.jpg)
+![Assembled gear pair, side view showing the SG90 mounted underneath](images/soccercam-gear-assembly-side.jpg)
 
 ## Firmware upload note
 
