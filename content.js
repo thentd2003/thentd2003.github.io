@@ -182,7 +182,7 @@ window.SITE_DATA = {
     },
     {
       company: "Analytic Systems Engineering",
-      role: "[Your Co-op Title]",
+      role: "Engineering Co-op",
       dates: "Sept 2023 – Dec 2024",
       location: "Delta, BC",
       logo: "logos/analytic-systems.png",
