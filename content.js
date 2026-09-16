@@ -168,7 +168,7 @@ window.SITE_DATA = {
       "Wanting to build something entirely my own is what led me to co-found AuraSleep with two partners. We didn't just chase the engineering. We ran market research, surveys, and customer interviews to make sure the problem we were solving was real, and pitched to mentors more times than I can count. Some of that feedback stung. We kept going anyway, redesigning and reframing the product every time we learned something new, until we had working schematics and the technology fully researched. It didn't end the way I'd hoped, but running my own startup taught me more about resilience, and about myself, than almost anything else I've done, and it changed how I think about building things for good.",
       "Outside of engineering, I chase the same restlessness in other ways: soccer, hiking, badminton, tennis, and traveling to new countries just to see how other people live and build their lives. I'm currently looking for my final co-op placement, and I'm looking for the same thing I've always chased: a problem worth throwing myself at."
     ]
-  }
+  
   }
 
 };
