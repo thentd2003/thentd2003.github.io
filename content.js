@@ -5,6 +5,10 @@
   - Anything wrapped in [ ] is a placeholder — replace it with real info.
   - To add a photo to a project, set "image" to a path like "thumbnails/aurasleep.jpg"
     and fill in "imageAlt". Leave image as null to keep the dashed placeholder box.
+  - To add a company logo to a Work Experience entry, drop the image in the "logos/"
+    folder and set "logo" to a path like "logos/tech-maple-works.png". Leave logo as
+    null to keep the copper-colored initials badge instead (set "initials" to the
+    2-letter code you want shown).
   - To add another project, copy one of the objects in the "projects" array below
     (including the outer { } and comma) and edit its fields. Order in this file
     is the order it appears on the page.
@@ -160,15 +164,72 @@ window.SITE_DATA = {
     }
   ],
 
+  experience: [
+    {
+      company: "Tech Maple Works",
+      role: "Engineering Consultant — Power Electronics",
+      dates: "Dec 2025 – Jul 2026",
+      location: null,
+      logo: null,
+      initials: "TM",
+      link: null,
+      bullets: [
+        "Designed and built a 500W-class half-bridge LCLR resonant induction heater from scratch as lead engineer",
+        "Rebuilt the driver circuit after an unstable first design, hand-selecting switching frequency, tank capacitance, and coil inductance",
+        "Reached a validated V1 prototype, heating a steel cup of water to 60°C in 60 seconds",
+        "Now redesigning around a closed-loop PLL for real-time frequency tracking through the workpiece's Curie point"
+      ]
+    },
+    {
+      company: "Analytic Systems Engineering",
+      role: "[Your Co-op Title]",
+      dates: "Sept 2023 – Dec 2024",
+      location: "Delta, BC",
+      logo: null,
+      initials: "AS",
+      link: "https://www.analyticsystems.com",
+      bullets: [
+        "Designed a high-voltage flyback converter and Cockcroft-Walton multiplier to generate 1000V test surges for validating a protection board",
+        "Iterated through two major redesigns after real hardware failures, including a transformer kickback that destroyed the original MOSFET",
+        "Delivered an adjustable 300–1000V surge source in a safety-labeled enclosure, used to test the disconnect board",
+        "Supported EMC/EMI compliance testing on the team's power conversion products"
+      ]
+    },
+    {
+      company: "SFU Rocketry Team",
+      role: "Power Team Member",
+      dates: "Jul 2022 – Dec 2023",
+      location: "Surrey, BC",
+      logo: null,
+      initials: "SR",
+      link: "https://www.sfurocketry.com/",
+      bullets: [
+        "Using Altium, LTspice for circuit design",
+        "Built dynamic load testing system",
+        "Researched and developed stable 5V and 3.3V converter",
+        "Integrated converter into rocket's power system"
+      ]
+    },
+    {
+      company: "SFU Satellite & UBC Orbit",
+      role: "Radio Communication Team Member",
+      dates: "Jul 2022 – Jan 2023",
+      location: "Burnaby, BC",
+      logo: null,
+      initials: "SS",
+      link: "https://www.ubcorbit.com/",
+      bullets: [
+        "Researching and developing Antenna Systems",
+        "Learn about RF circuits and different types of antennas",
+        "Get hands-on RF circuit and radio wave theory"
+      ]
+    }
+  ],
+
   about: {
     paragraphs: [
-      "Curiosity is where this all started. As a kid I'd take things apart just to understand them, chasing YouTube tutorials and DIY shows, then building my own breadboard-messy projects once I got my hands on an Arduino in high school. I taught myself to code because I wanted my ideas to actually do something.",
-      "A coop placement is where that curiosity turned into a calling. Watching a product come together through PCB design, embedded systems, and real engineering decisions with real consequences hit different than anything in a classroom, and it was enough to make me switch my major to ENSC's electronics concentration without a second thought. I'd already taught myself CAD and bought a 3D printer on faith before that term even started. When the coop finally handed me a real problem to solve, designing a test jig from scratch, I threw everything I'd taught myself at it. That's who I am: give me a goal I don't know how to reach yet, and I will find a way to learn into it.",
-      "Today that drive shows up as real, tangible skill. I'm strongest in circuit and PCB design, carrying something from a schematic to a working, tested board, and I care enough about it to keep a personal electronics lab bench at home. I can hold my own in firmware and code, and in SolidWorks when a prototype or test jig needs to exist in the physical world. What I'm really proud of is the whole loop: I can take an idea and carry it, myself, from a rough sketch to something real in my hands.",
-      "Wanting to build something entirely my own is what led me to co-found AuraSleep with two partners. We didn't just chase the engineering. We ran market research, surveys, and customer interviews to make sure the problem we were solving was real, and pitched to mentors more times than I can count. Some of that feedback stung. We kept going anyway, redesigning and reframing the product every time we learned something new, until we had working schematics and the technology fully researched. It didn't end the way I'd hoped, but running my own startup taught me more about resilience, and about myself, than almost anything else I've done, and it changed how I think about building things for good.",
-      "Outside of engineering, I chase the same restlessness in other ways: soccer, hiking, badminton, tennis, and traveling to new countries just to see how other people live and build their lives. I'm currently looking for my final co-op placement, and I'm looking for the same thing I've always chased: a problem worth throwing myself at."
+      "I've been taking things apart since I was a kid, playing with loose motors and components, pulling old electronics apart just to see how they worked. The first real thing I built was a simple RC car off a breadboard in high school, and once it actually worked I was hooked for good. I knew right then engineering was going to be my career. What a coop placement settled a couple years later was which kind: I got handed a real problem to solve, a test jig from scratch, and switched my major to electronics without a second thought. These days I keep a personal electronics lab bench at home, where the projects are a lot less breadboard and a lot more likely to catch fire if I mess something up, like the resonant induction heater I rebuilt from scratch after burning through more MOSFETs than I'd like to admit. Still just as fun. I'm currently on the hunt for my final co-op, looking for the same thing I've always chased: a problem worth throwing myself at."
     ]
-  
   }
 
 };
