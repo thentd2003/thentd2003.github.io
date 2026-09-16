@@ -100,6 +100,59 @@
     }
   }
 
+  // ---------- Work experience (profile page only) ----------
+  var expTimeline = document.getElementById('experienceTimeline');
+  if(expTimeline && d.experience){
+    d.experience.forEach(function(x){
+      var logoInner = x.logo
+        ? '<img src="' + x.logo + '" alt="' + x.company + ' logo">'
+        : '<span>' + (x.initials || x.company.slice(0,2).toUpperCase()) + '</span>';
+      var roleCls = isPlaceholder(x.role) ? ' class="placeholder"' : '';
+      var companyInner = x.link
+        ? '<a class="timeline-company" href="' + x.link + '" target="_blank" rel="noopener">' + x.company + ' <span class="arrow">→</span></a>'
+        : '<span class="timeline-company">' + x.company + '</span>';
+      var metaText = x.dates + (x.location ? ' · ' + x.location : '');
+      var hasBullets = x.bullets && x.bullets.length;
+      var bulletsHTML = hasBullets
+        ? '<div class="timeline-details"><ul class="timeline-bullets">' +
+            x.bullets.map(function(b){ return '<li>' + b + '</li>'; }).join('') +
+          '</ul></div>'
+        : '';
+      var toggleHTML = hasBullets
+        ? '<button class="timeline-toggle" type="button" aria-expanded="false" data-timeline-toggle aria-label="Show what I did at ' + x.company + '">' +
+            '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>' +
+          '</button>'
+        : '';
+      expTimeline.appendChild(el(
+        '<div class="timeline-item">' +
+          '<div class="timeline-rail"><span class="timeline-dot"></span></div>' +
+          '<div class="timeline-content">' +
+            '<div class="timeline-logo">' + logoInner + '</div>' +
+            '<div class="timeline-body">' +
+              companyInner +
+              '<p class="timeline-role"' + roleCls + '>' + x.role + '</p>' +
+              '<p class="timeline-dates"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>' + metaText + '</p>' +
+              bulletsHTML +
+            '</div>' +
+            toggleHTML +
+          '</div>' +
+        '</div>'
+      ));
+    });
+  }
+
+  // ---------- Timeline expand/collapse (delegated, profile page) ----------
+  document.addEventListener('click', function(e){
+    var tbtn = e.target.closest('[data-timeline-toggle]');
+    if(!tbtn) return;
+    var item = tbtn.closest('.timeline-item');
+    var det = item && item.querySelector('.timeline-details');
+    if(!det) return;
+    var open = tbtn.getAttribute('aria-expanded') === 'true';
+    tbtn.setAttribute('aria-expanded', String(!open));
+    det.classList.toggle('is-open', !open);
+  });
+
   // ---------- Footer / contact (both pages, if present) ----------
   if(document.getElementById('footerLinks')){
     document.getElementById('footerLinks').innerHTML =
