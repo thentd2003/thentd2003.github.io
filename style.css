@@ -491,6 +491,106 @@ section:last-of-type{ border-bottom:none; }
 .lab-row h4{ margin:0 0 4px; font-family:var(--font-display); font-size:15.5px; color:var(--ink); }
 .lab-row p{ margin:0; font-size:13.5px; color:var(--ink-muted); }
 
+/* ---------- Work experience timeline ---------- */
+.timeline{ position:relative; max-width:640px; }
+.timeline::before{
+  content:"";
+  position:absolute;
+  top:14px; bottom:14px; left:14px;
+  width:1px;
+  background:var(--line-strong);
+}
+.timeline-item{ position:relative; display:flex; padding-bottom:36px; }
+.timeline-item:last-child{ padding-bottom:0; }
+.timeline-rail{ width:28px; flex:none; display:flex; justify-content:center; }
+.timeline-dot{
+  position:relative; z-index:1;
+  width:8px; height:8px;
+  margin-top:16px;
+  border-radius:50%;
+  background:var(--phosphor);
+  box-shadow:0 0 8px var(--phosphor);
+  flex:none;
+}
+.timeline-content{ display:flex; align-items:flex-start; flex:1; min-width:0; }
+.timeline-logo{
+  flex:none;
+  width:52px; height:52px;
+  margin-right:18px;
+  border-radius:8px;
+  overflow:hidden;
+  background:var(--bg-panel);
+  border:1px solid var(--line-strong);
+  display:flex; align-items:center; justify-content:center;
+}
+.timeline-logo img{ width:100%; height:100%; object-fit:cover; display:block; }
+.timeline-logo span{
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size:16px;
+  color:var(--copper-bright);
+}
+.timeline-body{ flex:1; min-width:0; padding-top:2px; }
+.timeline-company{
+  display:inline-flex; align-items:center; gap:6px;
+  font-family:var(--font-display);
+  font-size:18px;
+  color:var(--ink);
+  text-decoration:none;
+}
+a.timeline-company:hover{ color:var(--phosphor); }
+.timeline-company .arrow{ color:var(--ink-muted); font-size:13px; transition:transform 0.15s ease, color 0.15s ease; }
+a.timeline-company:hover .arrow{ color:var(--phosphor); transform:translateX(2px); }
+.timeline-role{ font-size:14.5px; color:var(--ink-dim); margin:6px 0 6px; }
+.timeline-dates{
+  display:flex; align-items:center; gap:6px;
+  font-family:var(--font-mono);
+  font-size:11.5px;
+  color:var(--ink-muted);
+}
+.timeline-dates svg{ flex:none; opacity:0.75; }
+
+.timeline-toggle{
+  flex:none;
+  width:28px; height:28px;
+  margin-left:12px;
+  border-radius:50%;
+  border:1px solid var(--line-strong);
+  background:var(--bg-panel);
+  color:var(--ink-muted);
+  display:flex; align-items:center; justify-content:center;
+  cursor:pointer;
+  padding:0;
+  transition:border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+}
+.timeline-toggle:hover{ border-color:rgba(193,122,74,0.55); color:var(--phosphor); }
+.timeline-toggle svg{ transition:transform 0.2s ease; }
+.timeline-toggle[aria-expanded="true"]{ color:var(--phosphor); border-color:rgba(255,179,0,0.45); }
+.timeline-toggle[aria-expanded="true"] svg{ transform:rotate(180deg); }
+
+.timeline-details{ max-height:0; overflow:hidden; transition:max-height 0.35s ease; }
+.timeline-details.is-open{ max-height:400px; }
+.timeline-bullets{ list-style:none; margin:14px 0 0; padding:0; }
+.timeline-bullets li{
+  position:relative;
+  padding-left:16px;
+  margin-bottom:8px;
+  font-size:13.5px;
+  color:var(--ink-dim);
+}
+.timeline-bullets li:last-child{ margin-bottom:0; }
+.timeline-bullets li::before{
+  content:"›";
+  position:absolute; left:0;
+  color:var(--phosphor);
+  font-family:var(--font-mono);
+}
+
+@media (max-width:560px){
+  .timeline-logo{ width:44px; height:44px; margin-right:14px; }
+  .timeline-company{ font-size:16px; }
+}
+
 /* ---------- About ---------- */
 .about-grid{ min-width:0; }
 .about-photo{
