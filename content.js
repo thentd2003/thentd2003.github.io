@@ -170,7 +170,7 @@ window.SITE_DATA = {
       role: "Engineering Consultant — Power Electronics",
       dates: "Dec 2025 – Jul 2026",
       location: null,
-      logo: null,
+      logo: "logos/tech-maple-works.png",
       initials: "TM",
       link: null,
       bullets: [
@@ -185,7 +185,7 @@ window.SITE_DATA = {
       role: "[Your Co-op Title]",
       dates: "Sept 2023 – Dec 2024",
       location: "Delta, BC",
-      logo: null,
+      logo: "logos/analytic-systems.png",
       initials: "AS",
       link: "https://www.analyticsystems.com",
       bullets: [
@@ -200,7 +200,7 @@ window.SITE_DATA = {
       role: "Power Team Member",
       dates: "Jul 2022 – Dec 2023",
       location: "Surrey, BC",
-      logo: null,
+      logo: "logos/sfu-rocketry.png",
       initials: "SR",
       link: "https://www.sfurocketry.com/",
       bullets: [
@@ -215,7 +215,7 @@ window.SITE_DATA = {
       role: "Radio Communication Team Member",
       dates: "Jul 2022 – Jan 2023",
       location: "Burnaby, BC",
-      logo: null,
+      logo: "logos/sfu-sat.png",
       initials: "SS",
       link: "https://www.ubcorbit.com/",
       bullets: [
