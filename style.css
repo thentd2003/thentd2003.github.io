@@ -594,9 +594,9 @@ a.timeline-company:hover .arrow{ color:var(--phosphor); transform:translateX(2px
 /* ---------- About ---------- */
 .about-grid{ min-width:0; }
 .about-photo{
-  margin:32px 0 0;
+  margin:32px auto 0;
   width:100%;
-  max-width:380px;
+  max-width:460px;
   min-width:0;
 }
 .about-photo img{
