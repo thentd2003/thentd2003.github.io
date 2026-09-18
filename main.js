@@ -30,8 +30,7 @@
 
   // ---------- Hero (profile page only) ----------
   if(document.getElementById('heroHeadline')){
-    document.getElementById('heroHeadline').innerHTML =
-      d.name + ' builds <em>' + d.headlineHighlight + '</em> that power real hardware.';
+    document.getElementById('heroHeadline').innerHTML = d.headline;
     document.getElementById('heroSub').textContent = d.tagline;
 
     var metaWrap = document.getElementById('heroMeta');
@@ -42,8 +41,9 @@
 
   // ---------- Project card builder (shared) ----------
   function cardParts(p){
+    var mediaClass = 'project-media' + (p.imageFit === 'contain' ? ' project-media--contain' : '');
     var mediaHTML = p.image
-      ? '<div class="project-media"><img src="' + p.image + '" alt="' + (p.imageAlt || '') + '"></div>'
+      ? '<div class="' + mediaClass + '"><img src="' + p.image + '" alt="' + (p.imageAlt || '') + '"></div>'
       : '<div class="project-media project-media--empty"><span>' + (p.mediaLabel || '+ Add photo') + '</span></div>';
     var tagsHTML = p.tags.map(function(t){ return '<span class="tag">' + t + '</span>'; }).join('');
     var detailsHTML = Object.keys(p.details).map(function(k){
@@ -124,7 +124,7 @@
           '</button>'
         : '';
       expTimeline.appendChild(el(
-        '<div class="timeline-item">' +
+        '<div class="timeline-item reveal">' +
           '<div class="timeline-rail"><span class="timeline-dot"></span></div>' +
           '<div class="timeline-content">' +
             '<div class="timeline-logo">' + logoInner + '</div>' +
@@ -232,5 +232,23 @@
     revealEls.forEach(function(el){ io.observe(el); });
   } else {
     revealEls.forEach(function(el){ el.classList.add('is-visible'); });
+  }
+
+  // ---------- Macro: subtle scroll parallax on the hero scope panel ----------
+  // (profile page only; skipped on narrow layouts where the panel stacks under
+  // the text, and skipped entirely for prefers-reduced-motion.)
+  var scopeEl = document.querySelector('.scope');
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(scopeEl && !reduceMotion && window.matchMedia('(min-width: 841px)').matches){
+    var parallaxTicking = false;
+    window.addEventListener('scroll', function(){
+      if(parallaxTicking) return;
+      parallaxTicking = true;
+      requestAnimationFrame(function(){
+        var offset = Math.min(window.scrollY * 0.08, 40);
+        scopeEl.style.transform = 'translateY(' + offset + 'px)';
+        parallaxTicking = false;
+      });
+    }, { passive: true });
   }
 })();

@@ -1,3 +1,10 @@
+/* Macro: native cross-document page transition (index <-> projects).
+   Supported browsers cross-fade between full page navigations automatically;
+   unsupported browsers simply ignore this and navigate as normal. */
+@view-transition{
+  navigation:auto;
+}
+
 :root{
   --bg:#0b1512;
   --bg-panel:#101f19;
@@ -67,6 +74,11 @@ a{ color:inherit; }
   border-radius:50%;
   box-shadow:0 0 8px var(--phosphor);
   flex:none;
+  animation:led-pulse 2.6s ease-in-out infinite;
+}
+@keyframes led-pulse{
+  0%, 100%{ box-shadow:0 0 6px rgba(255,179,0,0.55); opacity:0.85; }
+  50%{ box-shadow:0 0 12px rgba(255,179,0,0.95); opacity:1; }
 }
 
 /* ---------- Header ---------- */
@@ -91,7 +103,8 @@ header{
   text-decoration:none;
   display:flex; align-items:center; gap:8px;
 }
-.nav__mark span{ color:var(--copper-bright); }
+.nav__mark span{ color:var(--copper-bright); animation:blink 1.1s steps(1,end) infinite; }
+@keyframes blink{ 50%{ opacity:0; } }
 .nav__links{
   display:flex; align-items:center; gap:28px;
   list-style:none; margin:0; padding:0;
@@ -141,6 +154,26 @@ header{
 @media (max-width:840px){
   .hero__grid{ grid-template-columns:1fr; }
 }
+@keyframes hero-in{
+  from{ opacity:0; transform:translateY(16px); }
+  to{ opacity:1; transform:translateY(0); }
+}
+@keyframes hero-in-fade{
+  from{ opacity:0; }
+  to{ opacity:1; }
+}
+.hero .eyebrow{ animation:hero-in 0.6s ease-out both; }
+.hero h1{ animation:hero-in 0.6s ease-out 0.1s both; }
+.hero__sub{ animation:hero-in 0.6s ease-out 0.22s both; }
+.hero__meta{ animation:hero-in 0.6s ease-out 0.34s both; }
+/* Opacity-only: `transform` on .scope is driven by the scroll-parallax script,
+   and a fill:both animation touching the same property would permanently
+   override it. */
+.scope{ animation:hero-in-fade 0.7s ease-out 0.42s both; }
+@media (prefers-reduced-motion: reduce){
+  .hero .eyebrow, .hero h1, .hero__sub, .hero__meta, .scope{ animation:none; }
+}
+
 .hero h1{
   font-family:var(--font-display);
   font-weight:700;
@@ -160,7 +193,7 @@ header{
   color:var(--ink-dim);
   max-width:46ch;
   margin:0 0 26px;
-  text-align:justify;
+  text-align:left;
   text-justify:inter-word;
   hyphens:auto;
 }
@@ -235,11 +268,16 @@ header{
   filter:drop-shadow(0 0 6px rgba(255,179,0,0.55));
   stroke-dasharray:1400;
   stroke-dashoffset:1400;
-  animation:draw 2.4s ease-out 0.3s forwards;
+  animation:draw 2.4s ease-out 0.3s forwards, signal-glow 3.2s ease-in-out 2.7s infinite;
 }
 @keyframes draw{ to{ stroke-dashoffset:0; } }
+@keyframes signal-glow{
+  0%, 100%{ filter:drop-shadow(0 0 5px rgba(255,179,0,0.45)); }
+  50%{ filter:drop-shadow(0 0 9px rgba(255,179,0,0.85)); }
+}
 @media (prefers-reduced-motion: reduce){
   .scope__trace{ stroke-dashoffset:0; animation:none; }
+  .eyebrow::before, .status-pill.is-progress::before, .nav__mark span{ animation:none; }
 }
 .scope__grid-line{ stroke:var(--line); stroke-width:1; }
 .scope__foot{
@@ -292,6 +330,8 @@ section:last-of-type{ border-bottom:none; }
 @media (max-width:640px){ .teaser-grid{ grid-template-columns:1fr; } }
 .teaser-card{
   display:block;
+  position:relative;
+  overflow:hidden;
   background:var(--bg-panel);
   border:1px solid var(--line-strong);
   border-radius:6px;
@@ -300,6 +340,20 @@ section:last-of-type{ border-bottom:none; }
   transition:border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
 }
 .teaser-card:hover{ border-color:rgba(193,122,74,0.55); background:var(--bg-panel-hover); transform:translateY(-2px); }
+.teaser-card::after, .project-card::after{
+  content:"";
+  position:absolute;
+  top:0; left:-60%;
+  width:40%; height:100%;
+  background:linear-gradient(115deg, transparent, rgba(255,179,0,0.10), transparent);
+  transform:skewX(-15deg);
+  transition:left 0.65s ease;
+  pointer-events:none;
+}
+.teaser-card:hover::after, .project-card:hover::after{ left:130%; }
+@media (prefers-reduced-motion: reduce){
+  .teaser-card::after, .project-card::after{ display:none; }
+}
 .teaser-card .eyebrow{ margin-bottom:10px; }
 .teaser-card h3{ font-family:var(--font-display); font-size:20px; margin:0 0 8px; color:var(--ink); }
 .teaser-card p{ font-size:13.5px; color:var(--ink-muted); margin:0 0 14px; }
@@ -315,15 +369,24 @@ section:last-of-type{ border-bottom:none; }
   .projects-grid{ grid-template-columns:1fr; }
 }
 .project-card{
+  position:relative;
+  overflow:hidden;
   background:var(--bg-panel);
   border:1px solid var(--line-strong);
   border-radius:6px;
   padding:22px 22px 20px;
   display:flex;
   flex-direction:column;
-  transition:border-color 0.2s ease, background 0.2s ease;
 }
-.project-card:hover{ border-color:rgba(193,122,74,0.55); background:var(--bg-panel-hover); }
+/* Higher specificity than the plain .reveal rule (which also sets `transition`)
+   so hover transitions here aren't silently clobbered by the cascade. */
+.project-card.reveal{
+  transition:opacity 0.7s cubic-bezier(0.2,0.7,0.3,1), transform 0.7s cubic-bezier(0.2,0.7,0.3,1), border-color 0.2s ease, background 0.2s ease;
+}
+.project-card:hover{ transition-duration:0.2s; }
+.project-card:hover{ border-color:rgba(193,122,74,0.55); background:var(--bg-panel-hover); transform:translateY(-3px); }
+/* Stagger the fade-in of cards that share a row */
+.projects-grid .project-card:nth-child(2n){ transition-delay:0.08s; }
 
 .project-media{
   aspect-ratio:16/10;
@@ -336,6 +399,17 @@ section:last-of-type{ border-bottom:none; }
   width:100%; height:100%;
   object-fit:cover;
   display:block;
+}
+.project-media--contain{
+  padding:20px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.project-media--contain img{
+  width:100%; height:100%;
+  object-fit:contain;
+  border-radius:2px;
 }
 .project-media--empty{
   display:flex; align-items:center; justify-content:center;
@@ -374,7 +448,23 @@ section:last-of-type{ border-bottom:none; }
   padding:3px 8px;
   border-radius:2px;
 }
-.status-pill.is-progress{ color:var(--copper-bright); border-color:rgba(193,122,74,0.4); }
+.status-pill.is-progress{
+  color:var(--copper-bright);
+  border-color:rgba(193,122,74,0.4);
+  position:relative;
+  padding-left:17px;
+}
+.status-pill.is-progress::before{
+  content:"";
+  position:absolute;
+  left:7px; top:50%;
+  width:5px; height:5px;
+  margin-top:-2.5px;
+  border-radius:50%;
+  background:var(--copper-bright);
+  box-shadow:0 0 6px var(--copper-bright);
+  animation:led-pulse 2s ease-in-out infinite;
+}
 
 .project-card h3{
   font-family:var(--font-display);
@@ -501,6 +591,11 @@ section:last-of-type{ border-bottom:none; }
   background:var(--line-strong);
 }
 .timeline-item{ position:relative; display:flex; padding-bottom:36px; }
+.timeline .timeline-item:nth-child(2){ transition-delay:0.08s; }
+.timeline .timeline-item:nth-child(3){ transition-delay:0.16s; }
+.timeline .timeline-item:nth-child(4){ transition-delay:0.24s; }
+.timeline .timeline-item:nth-child(5){ transition-delay:0.32s; }
+.timeline .timeline-item:nth-child(6){ transition-delay:0.4s; }
 .timeline-item:last-child{ padding-bottom:0; }
 .timeline-rail{ width:28px; flex:none; display:flex; justify-content:center; }
 .timeline-dot{
@@ -596,7 +691,7 @@ a.timeline-company:hover .arrow{ color:var(--phosphor); transform:translateX(2px
 .about-photo{
   margin:32px auto 0;
   width:100%;
-  max-width:460px;
+  max-width:600px;
   min-width:0;
 }
 .about-photo img{
@@ -608,12 +703,13 @@ a.timeline-company:hover .arrow{ color:var(--phosphor); transform:translateX(2px
 }
 .about-photo figcaption{
   font-family:var(--font-mono);
-  font-size:11.5px;
+  font-size:13.5px;
   letter-spacing:0.03em;
-  color:var(--ink-muted);
+  color:var(--ink-dim);
   margin-top:10px;
+  text-align:center;
 }
-.about-grid p{ color:var(--ink-dim); font-size:15px; margin:0 0 16px; text-align:justify; text-justify:inter-word; hyphens:auto; }
+.about-grid p{ color:var(--ink-dim); font-size:15px; margin:0 0 16px; text-align:left; }
 
 /* ---------- Footer / contact ---------- */
 footer{ padding:64px 0 40px; }
@@ -730,6 +826,6 @@ footer .footer-sub{ color:var(--ink-muted); font-size:14px; max-width:40ch; marg
 }
 
 /* Reveal on scroll */
-.reveal{ opacity:0; transform:translateY(14px); transition:opacity 0.5s ease, transform 0.5s ease; }
+.reveal{ opacity:0; transform:translateY(34px); transition:opacity 0.7s cubic-bezier(0.2,0.7,0.3,1), transform 0.7s cubic-bezier(0.2,0.7,0.3,1); }
 .reveal.is-visible{ opacity:1; transform:none; }
 @media (prefers-reduced-motion: reduce){ .reveal{ opacity:1; transform:none; } }

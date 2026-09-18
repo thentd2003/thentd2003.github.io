@@ -17,8 +17,8 @@
 window.SITE_DATA = {
 
   name: "David Nguyen",
-  headlineHighlight: "circuits",
-  tagline: "Power electronics and embedded systems engineer — resonant converters, control loops, and the boards that make hardware products actually run. Currently searching for my final co-op.",
+  headline: 'David Nguyen — <em>power electronics</em> and embedded systems engineer.',
+  tagline: "I design resonant power converters, flyback and multiplier topologies, and closed-loop embedded control systems — carrying each one from circuit theory and topology selection through PCB layout to validated, tested hardware.",
   meta: ["Simon Fraser University", "Burnaby, BC, Canada", "Open to Co-op — Spring – Summer 2027"],
 
   resumeLink: "David_Nguyen_Resume.pdf",
@@ -75,6 +75,7 @@ window.SITE_DATA = {
       tags: ["Analog IC Design", "OrCAD X", "Team of 3"],
       image: "thumbnails/bandgap.png",
       imageAlt: "CMOS bandgap reference circuit schematic",
+      imageFit: "contain",
       mediaLabel: "+ Add photo",
       link: "https://github.com/thentd2003/thentd2003.github.io/tree/main/projects/bandgap-reference",
       linkLabel: "Full Report",
@@ -133,6 +134,7 @@ window.SITE_DATA = {
       tags: ["C", "Cache Hierarchy", "Branch Prediction"],
       image: "thumbnails/riscv.png",
       imageAlt: "5-stage RISC-V pipeline diagram",
+      imageFit: "contain",
       mediaLabel: "+ Add screenshot",
       link: "https://github.com/thentd2003/thentd2003.github.io/tree/main/projects/riscv-simulator",
       linkLabel: "Full Report",
