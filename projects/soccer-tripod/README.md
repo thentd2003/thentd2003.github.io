@@ -1,6 +1,6 @@
 # SoccerCam
 
-A motorized phone-tripod head that tracks a soccer ball in real time. The phone runs on-device ball detection and sends movement commands over Bluetooth to a microcontroller, which drives a pan motor to keep the ball framed — no separate camera, no cloud processing, no wireless-tethered motor unit.
+A motorized phone-tripod head that tracks a soccer ball in real time. The phone runs on-device ball detection and sends movement commands over Bluetooth to a microcontroller, which drives a pan motor to keep the ball framed: no separate camera, no cloud processing, no wireless-tethered motor unit.
 
 ![Assembled rig on the tripod, ESP32 and wiring visible at the base](images/soccercam-hero-tripod.jpg)
 
@@ -8,7 +8,7 @@ This repo covers the **hardware, mechanical design, and firmware** side of the p
 
 ## Status
 
-🔧 Hardware built and integrated — currently in calibration (tuning empirical motion constants against the physical build).
+🔧 Hardware built and integrated: currently in calibration (tuning empirical motion constants against the physical build).
 
 ## How it works
 
@@ -27,10 +27,10 @@ This repo covers the **hardware, mechanical design, and firmware** side of the p
 | Pan motor | SG90 continuous-rotation servo |
 | Homing | SPDT micro limit switch |
 | Bearing | 608ZZ (8×22×7mm) |
-| Gearing | Custom 3D-printed bevel gears — module 1.5, 45T fixed / 30T pinion, 56.25mm center distance, 1.5:1 ratio |
+| Gearing | Custom 3D-printed bevel gears: module 1.5, 45T fixed / 30T pinion, 56.25mm center distance, 1.5:1 ratio |
 | Frame | 3D-printed platform, mounted on an off-the-shelf tripod (socket reverse-engineered by hand) |
 
-**Note:** the SG90 *positional* servo can't rotate past 180°, but the housing and mounts were already designed around its footprint. Rather than redesign for a different motor, this project swaps in the continuous-rotation SG90 variant and implements a software encoder — dead-reckoned position tracking, corrected against the limit switch — to recover positional behavior.
+**Note:** the SG90 *positional* servo can't rotate past 180°, but the housing and mounts were already designed around its footprint. Rather than redesign for a different motor, this project swaps in the continuous-rotation SG90 variant and implements a software encoder (dead-reckoned position tracking, corrected against the limit switch) to recover positional behavior.
 
 **Power:** the SG90 needs an external 5V supply; powering it from the ESP32's onboard 5V pin causes brownouts under load.
 
@@ -38,15 +38,15 @@ This repo covers the **hardware, mechanical design, and firmware** side of the p
 
 Single-file non-blocking state machine (`SoccerCam.ino`), built on:
 
-- **NimBLE-Arduino** (h2zero) — BLE server, receives tracking commands from the phone
-- **ESP32Servo** (Kevin Harrington / John K. Bennett) — pan servo control
+- **NimBLE-Arduino** (h2zero): BLE server, receives tracking commands from the phone
+- **ESP32Servo** (Kevin Harrington / John K. Bennett): pan servo control
 
 Key design points:
 
-- `millis()`-based non-blocking timing throughout — no `delay()` calls, so the rig stays responsive and interruptible
+- `millis()`-based non-blocking timing throughout: no `delay()` calls, so the rig stays responsive and interruptible
 - Unified `enforceLimits()` function applies both soft and hard travel limits consistently
 - Dead-reckoned position estimate, corrected against limit-switch ground truth on homing
-- Proportional tracking controller with deadzone on the phone side; the ESP32 only handles mechanical scaling (`map()`) — it doesn't own any tracking logic
+- Proportional tracking controller with deadzone on the phone side; the ESP32 only handles mechanical scaling (`map()`); it doesn't own any tracking logic
 
 ### Constants requiring hardware calibration
 
@@ -62,7 +62,7 @@ These are empirically tuned against the physical build, not computed:
 
 ![Exploded view of the pan drive assembly](images/pan-assembly-exploded.png)
 
-Designed in SolidWorks (Toolbox for gear configuration). Bevel gears were chosen over a worm-gear approach because FDM-printed worm gears are unreliable at these tolerances, and the layout — servo not co-located with the rotating platform, platform on its own dedicated bearing — calls for right-angle torque transmission with both gears supported close to their respective bearings to avoid mesh flex under load.
+Designed in SolidWorks (Toolbox for gear configuration). Bevel gears were chosen over a worm-gear approach because FDM-printed worm gears are unreliable at these tolerances, and the layout (servo not co-located with the rotating platform, platform on its own dedicated bearing) calls for right-angle torque transmission with both gears supported close to their respective bearings to avoid mesh flex under load.
 
 Bearing seat bores follow: `bore = nominal OD + (0.53–0.6 × nozzle diameter)`. A relief cut on the gear hub's underside ensures the retaining nut contacts only the bearing's outer race, preventing the race from locking up.
 
@@ -73,7 +73,7 @@ The assembled build, matching the CAD above:
 
 ## Firmware upload note
 
-Manual BOOT-button upload is required — the EN switch's capacitance interferes with auto-reset on this board.
+Manual BOOT-button upload is required: the EN switch's capacitance interferes with auto-reset on this board.
 
 ## Roadmap
 

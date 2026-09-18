@@ -1,6 +1,6 @@
 # RISC-V Cycle-Accurate Pipeline Simulator
 
-**ENSC 254 (Computer Architecture) Final Project — 4-person team**
+**ENSC 254 (Computer Architecture) Final Project: 4-person team**
 
 A cycle-accurate simulator for a 5-stage RISC-V pipeline, built across four
 milestones: a basic pipeline, hazard detection & forwarding, cache
@@ -9,13 +9,13 @@ branch prediction.
 
 ## Overview
 
-- **MS1 — Basic pipeline**: IF/ID/EX/MEM/WB datapath, control-signal
+- **MS1. Basic pipeline**: IF/ID/EX/MEM/WB datapath, control-signal
   generation, ALU control decode, branch condition logic
-- **MS2 — Hazards**: EX/MEM forwarding, load-use stalls, and control-hazard
+- **MS2. Hazards**: EX/MEM forwarding, load-use stalls, and control-hazard
   flushing on taken branches
-- **MS3 — Cache**: every load/store hits a simulated cache; a design-space
+- **MS3. Cache**: every load/store hits a simulated cache; a design-space
   exploration across cache sizes found the best hit rate at each size
-- **MS4 — Extensions**: split L1-I/D + unified L2 cache, and 1-bit/2-bit
+- **MS4. Extensions**: split L1-I/D + unified L2 cache, and 1-bit/2-bit
   branch predictors
 
 ## Results
@@ -40,8 +40,8 @@ report.
 
 ## Files
 
-- `src/` — simulator source and milestone test scripts
-- `dse_1k/2k/4k/8k.txt` — winning cache configs from the MS3 design space
+- `src/`: simulator source and milestone test scripts
+- `dse_1k/2k/4k/8k.txt`: winning cache configs from the MS3 design space
   exploration
-- `RISCV_Simulator_Report.pdf` — full write-up
-- `images/` — performance charts, used above
+- `RISCV_Simulator_Report.pdf`: full write-up
+- `images/`: performance charts, used above

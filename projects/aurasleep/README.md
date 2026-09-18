@@ -1,2 +1,2 @@
-# AuraSleep — Smart Sleep Mask
+# AuraSleep: Smart Sleep Mask
 

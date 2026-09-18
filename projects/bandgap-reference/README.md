@@ -1,6 +1,6 @@
 # CMOS Bandgap Reference Voltage Circuit
 
-**ENSC 325 — Analog IC Design, Simon Fraser University**
+**ENSC 325: Analog IC Design, Simon Fraser University**
 
 A CMOS bandgap reference (BGR) circuit, designed from first principles and
 verified in OrCAD X / PSpice. The goal: a stable ~1.2V reference voltage
@@ -30,7 +30,7 @@ better suited to low-power/compact layouts).
 |---|---|
 | ![Brokaw cell](images/fig1a-brokaw-cell.png) | ![Widlar current mirror](images/fig1b-widlar-mirror.png) |
 
-The **current mirror topology was chosen** — it traded some theoretical
+The **current mirror topology was chosen**: it traded some theoretical
 precision for simpler implementation, easier debugging, and faster design
 iteration in OrCAD X, while still meeting the project's accuracy target.
 
@@ -81,14 +81,14 @@ V_REF = V_BE3 + (R2 / R1) · V_T · ln(n)
 ```
 
 Two PMOS (M1, M2) and two NMOS (M3, M4) transistors form a cascoded current
-mirror — the cascode arrangement reduces the effect of mismatched drain
+mirror: the cascode arrangement reduces the effect of mismatched drain
 voltages between M1/M2 and increases output impedance, keeping the mirrored
 current stable.
 
 ### Startup circuit
 
 Current-mirror BGR circuits have a degenerate "off" state where every
-branch sits at zero current — nothing pulls it into the correct operating
+branch sits at zero current; nothing pulls it into the correct operating
 point after power-on. A dedicated startup circuit (M5–M8) forces the mirror
 into its correct bias state every time the circuit powers on, then
 disconnects itself once normal operation is reached:
@@ -98,7 +98,7 @@ disconnects itself once normal operation is reached:
 PMOS M5/M6 pull the gates of M1, M2, and M8 down on startup. Once current
 starts flowing through the main branch, M7 turns on and pulls M5's gate
 back up, turning the startup circuit off and disconnecting it from the
-rest of the mirror — so it only intervenes at power-on, never during normal
+rest of the mirror, so it only intervenes at power-on, never during normal
 operation.
 
 ## OrCAD X Implementation
@@ -129,7 +129,7 @@ TC(ppm) = | (VRef(T2) - VRef(T1)) / (VRef_nom × (T2 - T1)) | × 10^6
         = 99.6 ppm/°C
 ```
 
-**99.6 ppm/°C** — just under the 100 ppm/°C target.
+**99.6 ppm/°C**: just under the 100 ppm/°C target.
 
 ### Line noise rejection
 
@@ -140,7 +140,7 @@ components:
 
 | Before decoupling | After decoupling |
 |---|---|
-| ![VRef before decoupling — visible ripple](images/fig8a-vref-before-decoupling.png) | ![VRef after decoupling — ripple suppressed](images/fig8b-vref-after-decoupling.png) |
+| ![VRef before decoupling, visible ripple](images/fig8a-vref-before-decoupling.png) | ![VRef after decoupling, ripple suppressed](images/fig8b-vref-after-decoupling.png) |
 
 The ripple is almost entirely suppressed after adding the decoupling caps,
 confirming good power-supply rejection.
@@ -149,7 +149,7 @@ confirming good power-supply rejection.
 
 ![Power consumption measurement](images/fig9-power-consumption.png)
 
-**5 mW** measured — low enough for energy-sensitive applications like IoT.
+**5 mW** measured: low enough for energy-sensitive applications like IoT.
 
 ## Conclusion
 
@@ -161,13 +161,13 @@ behavior at low temperatures.
 
 ## Files
 
-- `bandgap-reference.dsn` / `.opj` — OrCAD schematic and project files
-- `q2n3906.lib` / `5um_bnr_cmos.lib` — SPICE models used in simulation
-- `ENSC_325_Bandgap_Reference_Report.pdf` — full original write-up
-- `images/` — schematics and result plots (extracted from the report,
+- `bandgap-reference.dsn` / `.opj`: OrCAD schematic and project files
+- `q2n3906.lib` / `5um_bnr_cmos.lib`: SPICE models used in simulation
+- `ENSC_325_Bandgap_Reference_Report.pdf`: full original write-up
+- `images/`: schematics and result plots (extracted from the report,
   used above)
 
 ## Team
 
-Group project (3 members) — my contribution was simulations and the
+Group project (3 members). My contribution was simulations and the
 written report.

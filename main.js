@@ -1,13 +1,13 @@
 /*
   Shared behavior for both pages (index.html = profile, projects.html = projects).
-  Reads window.SITE_DATA from content.js. Edit content.js for copy — not this file.
+  Reads window.SITE_DATA from content.js. Edit content.js for copy; not this file.
   This file checks which elements exist on the current page and only renders those,
   so it's safe to include on both pages unchanged.
 */
 (function(){
   var d = window.SITE_DATA;
   if(!d){
-    document.body.innerHTML = '<p style="padding:40px;font-family:monospace;color:#eae6d9;">content.js failed to load — make sure it sits in the same folder as this file.</p>';
+    document.body.innerHTML = '<p style="padding:40px;font-family:monospace;color:#eae6d9;">content.js failed to load. Make sure it sits in the same folder as this file.</p>';
     return;
   }
 
@@ -21,7 +21,7 @@
   }
 
   // ---------- Nav mark + resume link (both pages) ----------
-  document.title = d.name + ' — Hardware Engineer';
+  document.title = d.name + ', Hardware Engineer';
   var navMark = document.getElementById('navMark');
   if(navMark){ navMark.innerHTML = d.name.split(' ').join('<span>_</span>').toUpperCase(); }
 
@@ -159,7 +159,7 @@
       '<a class="btn-primary" href="mailto:' + d.email + '">Email</a>' +
       '<a class="btn-ghost" href="' + d.github + '" target="_blank" rel="noopener">GitHub</a>' +
       '<a class="btn-ghost" href="' + d.linkedin + '" target="_blank" rel="noopener">LinkedIn</a>';
-    document.getElementById('footerName').textContent = d.name + ' — Hardware Engineer';
+    document.getElementById('footerName').textContent = d.name + ', Hardware Engineer';
   }
 
   // ---------- Resume preview modal (both pages, if resume button present) ----------
