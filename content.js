@@ -171,15 +171,16 @@ window.SITE_DATA = {
       company: "Tech Maple Works",
       role: "Engineering Consultant, Power Electronics",
       dates: "Dec 2025 – Jul 2026",
-      location: null,
+      location: "Burnaby, BC",
       logo: "logos/tech-maple-works.png",
       initials: "TM",
       link: null,
       bullets: [
-        "Designed and built a 500W-class half-bridge LCLR resonant induction heater from scratch as lead engineer",
-        "Rebuilt the driver circuit after an unstable first design, hand-selecting switching frequency, tank capacitance, and coil inductance",
-        "Reached a validated V1 prototype, heating a steel cup of water to 60°C in 60 seconds",
-        "Now redesigning around a closed-loop PLL for real-time frequency tracking through the workpiece's Curie point"
+        "Architected a half-bridge LCLR series-resonant induction heater from scratch as lead engineer, defining the full power signal chain from DC bus through the resonant work coil to reach a working first prototype",
+        "Diagnosed a gate-driver bandwidth limitation causing destructive hard-switching and resolved it via a retargeted 57–70kHz operating band",
+        "Bench-validated magnetic coupling against theory: ferromagnetic steel heated efficiently at the design frequency, while non-magnetic copper showed minimal heating as expected",
+        "Diagnosed Curie-point-driven resonant drift as the open-loop design's core fragility and architected a four-stage closed-loop PLL to track resonance in real time",
+        "Currently designing production-ready PCBs covering the power stage, PLL feedback, and gate driver circuitry"
       ]
     },
     {
@@ -191,10 +192,11 @@ window.SITE_DATA = {
       initials: "AS",
       link: "https://www.analyticsystems.com",
       bullets: [
-        "Designed a high-voltage flyback converter and Cockcroft-Walton multiplier to generate 1000V test surges for validating a protection board",
-        "Iterated through two major redesigns after real hardware failures, including a transformer kickback that destroyed the original MOSFET",
-        "Delivered an adjustable 300–1000V surge source in a safety-labeled enclosure, used to test the disconnect board",
-        "Supported EMC/EMI compliance testing on the team's power conversion products"
+        "Independently designed and simulated a high-voltage flyback converter (24VDC input) in LTspice and Altium, validating output across an 800–1200V range against a 1000V target",
+        "Replaced outdated test fixtures with custom 3D-printed test jigs with integrated PCB slot placement, cutting per-unit testing time by 20% and now adopted lab-wide to test 200+ boards",
+        "Performed conducted and radiated EMC/EMI compliance testing on a batch of 50 power inverters, diagnosing and resolving the sole non-conforming unit",
+        "Held 100% run accuracy across all 50 EMC/EMI test runs while cutting per-run setup time by 40% through optimized fixture layout",
+        "Calculated individual and parallel-aggregated ratings for four 777.5W resistive load units (3010W combined) and thermally profiled all six resistor groups, confirming safe operation up to 210°C"
       ]
     },
     {
@@ -206,10 +208,10 @@ window.SITE_DATA = {
       initials: "SR",
       link: "https://www.sfurocketry.com/",
       bullets: [
-        "Using Altium, LTspice for circuit design",
-        "Built dynamic load testing system",
-        "Researched and developed stable 5V and 3.3V converter",
-        "Integrated converter into rocket's power system"
+        "Used Altium and LTspice for power electronics circuit design and simulation",
+        "Built a dynamic load testing system for validating power converter performance",
+        "Researched and developed a stable 5V and 3.3V DC-DC converter",
+        "Integrated the converter into the rocket's onboard power system"
       ]
     },
     {
@@ -221,9 +223,8 @@ window.SITE_DATA = {
       initials: "SS",
       link: "https://www.ubcorbit.com/",
       bullets: [
-        "Researching and developing Antenna Systems",
-        "Learn about RF circuits and different types of antennas",
-        "Get hands-on RF circuit and radio wave theory"
+        "Attended workshops and tutorials on RF circuit design and antenna systems, covering dipole, patch, and other antenna types",
+        "Built foundational knowledge of radio wave propagation theory through hands-on tutorial sessions"
       ]
     }
   ],
